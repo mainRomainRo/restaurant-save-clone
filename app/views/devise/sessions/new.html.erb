@@ -6,7 +6,7 @@
                     <h3 class="heading display-4 strong-400 c-white">
                         Connexion
                     </h3>
-
+                  <div style="padding: 10px">
                       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
                         <div class="field">
@@ -16,7 +16,7 @@
 
                         <div class="field">
                           <%= f.label :password, class: "c-white" %><br />
-                          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                          <%= f.password_field :password, autocomplete: "off", class: "form-control" %><br />
                         </div>
 
                         <div class="row">
@@ -26,8 +26,8 @@
 
                           <div class="col-6 field text-right">
                           <% if devise_mapping.rememberable? -%>
+                              <%= f.label :remember_me, "Se souvenir de moi", class: "c-white" %>
                               <%= f.check_box :remember_me %>
-                              <%= f.label :remember_me, "Se souvenir de moi" %>
                           <% end -%>
                           </div>
                         </div>
@@ -37,6 +37,7 @@
                         </div>
 
                       <% end %>
+                    </div>
 
                   </div>
                 </div>
