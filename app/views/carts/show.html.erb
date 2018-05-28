@@ -5,4 +5,4 @@
 
 <p><%= "truc" %></p>
 <p><%= render @user.items if user_signed_in? %></p>
-<p><%= @total %></p>
+<p><%= @total if @user.items.length > 0 %></p>

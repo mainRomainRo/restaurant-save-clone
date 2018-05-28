@@ -11,7 +11,9 @@ class CartsController < ApplicationController
   # GET /carts/1.json
   def show
     @user = current_user
-    @total = calcul_total
+    if @user.items.length > 0
+      @total = calcul_total
+    end
   end
 
   # GET /carts/new
@@ -66,7 +68,7 @@ class CartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      if user_signed_in?
+      if user_signed_in? && current_user.cart
         @cart = current_user.cart
       elsif @cart = Cart.find_by(id: session[:cart_id])
       else

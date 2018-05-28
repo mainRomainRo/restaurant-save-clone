@@ -176,11 +176,11 @@
 
 <div class="pl-4 d-none d-lg-inline-block">
   <% if user_signed_in? %>
-    <%= link_to "#{current_user.firstname}'s Page", profile_path(current_user), class: "btn btn-outline-success my-2 my-sm-0" %>
-    <%= link_to 'Log out', logout_path, method: :delete, class: "btn btn-outline-danger my-2 my-sm-0"%>
+    <%= link_to "#{current_user.firstname}'s Page", "#", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger my-2 my-sm-0"%>
   <% else %>
-    <%= link_to 'Sign up', signup_path, class: "btn btn-outline-warning" %>
-    <%= link_to 'Log in', login_path, class: "btn btn-outline-success" %>
+    <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-outline-warning" %>
+    <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-success" %>
   <% end %>
 </div>
         </div>
