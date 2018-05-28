@@ -4,4 +4,7 @@ class Item < ApplicationRecord
   validates :price, numericality: true
   validates :title, :price, :description, :image_url, presence: true
 
+  has_many :cart_items
+  has_many :users, through: :cart
+
 end
