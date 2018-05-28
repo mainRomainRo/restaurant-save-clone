@@ -11,7 +11,40 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <form>
+      <%= form_for(:item, url: {action: "create"}) do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control', id: "exampleFormControlInput1", placeholder: "Title of Item" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :image_url %>
+          <%= f.file_field :image_url %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_field :description, class: 'form-control', id: "exampleFormControlInput1", placeholder: "Description here" %>
+        </div>
+        <!-- Single input slider -->
+        <div class="input-slider-container">
+            <div id="input-slider" class="input-slider" data-range-value-min="1" data-range-value-max="99"></div>
+
+            <!-- Input slider values -->
+            <div class="row mt-4">
+                <div class="col-6">
+                    <label><%= f.number_field :price, id: "input-slider-value", class: "range-slider-value"%>€</label>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Okay !'%>
+        </div>
+      </form>
+      </div>
+    </div>
+
+      <% end %>
+
 <% end %>

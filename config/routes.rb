@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root 'pages#index'
   resources :items
   get :mon_panier, to: "carts#show", as: :mon_panier
+  get '/item/:id', to: "items#show"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
