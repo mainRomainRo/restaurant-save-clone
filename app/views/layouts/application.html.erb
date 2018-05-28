@@ -19,6 +19,10 @@
   </head>
 
   <body class="body-wrap">
-    <%= yield %>
+    <main class="body-wrap">
+      <%= render 'layouts/header' %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </main>
   </body>
 </html>

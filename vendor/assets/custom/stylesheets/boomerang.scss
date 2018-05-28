@@ -4,10 +4,10 @@ Website URI: https://wrapbootstrap.com/theme/boomerang-multipurpose-bootstrap-th
 Author: Webpixels
 Author URI: https://www.webpixels.io
 */
-/* 
+/*
 
 Copy and paste the variables that you want to modify. The default ones will be overridden.
-Below is a basic example of how to edit Sass variables. 
+Below is a basic example of how to edit Sass variables.
 It is a basic level of customization that will help you modify the primary colors and some other properties
 
 Uncomment the lines you want to edit. Remove the ones you don't need or add new ones from _variables.scss
@@ -2625,34 +2625,7 @@ a:hover {
 }
 
 /* ==========  Blzee  ========== */
-@font-face {
-  font-family: 'Blzee';
-  src: url("../fonts/blzee/blzee.eot");
-  src: url("../fonts/blzee/blzee.eot?#iefix") format("embedded-opentype"), url("../fonts/blzee/blzee.woff") format("woff"), url("../fonts/blzee/blzee.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Sue Ellen Francisco';
-  src: url("../fonts/other/sue-ellen-francisco.ttf");
-  src: url("../fonts/other/sue-ellen-francisco.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Pacifico';
-  src: url("../fonts/other/pacifico.ttf");
-  src: url("../fonts/other/pacifico.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'YellowTail';
-  src: url("../fonts/other/yellowtail-regular.ttf");
-  src: url("../fonts/other/yellowtail-regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+
 .st-container,
 .st-content,
 .st-pusher {
@@ -2758,7 +2731,7 @@ a:hover {
 }
 
 .st-profile {
-  background-image: url("../images/patterns/pattern-1.png");
+
   background-repeat: repeat;
   padding: 2rem;
 }
@@ -20439,13 +20412,11 @@ span.flatpickr-weekday {
 }
 
 .sct-shadow-top-1 {
-  background-image: url("../images/elements/shadow-1.png");
   background-repeat: no-repeat;
   background-position: top center;
 }
 
 .sct-shadow-bottom-1 {
-  background-image: url("../images/elements/shadow-1.png");
   background-repeat: no-repeat;
   background-position: bottom center;
 }
@@ -20818,17 +20789,14 @@ body {
   }
 }
 .body-bg-1 {
-  background: url("../images/patterns/pattern-1.png");
   background-repeat: repeat;
 }
 
 .body-bg-2 {
-  background: url("../images/patterns/pattern-2.png");
   background-repeat: repeat;
 }
 
 .body-bg-3 {
-  background: url("../images/patterns/pattern-3.png");
   background-repeat: repeat;
 }
 
@@ -22172,7 +22140,6 @@ body {
   background-color: rgba(52, 82, 255, 0.5);
   background-repeat: no-repeat;
   background-size: 32px 64px;
-  background-image: url("../images/icons/google-maps/icon-controller.svg");
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }

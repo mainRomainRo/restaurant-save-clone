@@ -11,12 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require javascripts/boomerang
-//= require javascripts/bootstrap
-//= require javascripts/classie
-//= require javascripts/popper
-//= require javascripts/slidebar
 //= require rails-ujs
+//= require javascripts/bootstrap
+//= require javascripts/boomerang
+//= require javascripts/classie
+//= require javascripts/slidebar
+//= require popper
 //= require activestorage
 //= require turbolinks
 //= require_tree .

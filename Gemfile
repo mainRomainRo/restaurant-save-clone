@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails'
 
+gem 'popper_js'
 
 # Auth
 gem 'devise'

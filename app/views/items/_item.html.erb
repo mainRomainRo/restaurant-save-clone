@@ -9,8 +9,8 @@
 
       <div class="card-body px-0">
         <div class="">
-          <a href="#" class="heading heading-5 strong-500"><%= item.title %></a>
-          <p class="c-gray-light mt-2 d-none">XXX</p>
+          <%= link_to item.title, item_path(item.id), class: "heading heading-5 strong-500" %>
+          <p class="c-gray-light mt-2 d-none">item.description</p>
         </div>
       </div>
     </div>
