@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Item.delete_all
 
 cat_title = [
   "Lecpy",
@@ -82,10 +83,21 @@ cat_title.shuffle!
 cat_image.shuffle!
 cat_description.shuffle!
 
-Item.populate(20) do |item|
-  item.title = "#{cat_name[i]}'s photo"
+20.times do
+  item = Item.new
+  item.title = "#{cat_title[i]}'s photo"
   item.description = "From #{cat_description[i]}'s family"
-  item.price = rand(100..2000)
+  item.price = rand(1..20)
   item.image_url = cat_image[i]
-  i++
+  item.save
+  i += 1
+end
+
+Item.all.each do |item|
+    puts "---------------------------------"
+    puts item.id
+    puts item.title
+    puts item.description
+    puts item.price
+    puts item.image_url
 end
