@@ -6,47 +6,55 @@
                     <h3 class="heading display-4 strong-400 c-white">
                         Créer un compte
                     </h3>
-
+                      <div class="justify-content-center" style="padding: 10px">
                       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                         <%= devise_error_messages! %>
 
-                        <div class="field">
+                        <div class="form-group row">
+                        <div class="field col-6">
                           <%= f.label :firstname, "Prénom", class: "c-white"  %><br />
-                          <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname" %>
+                          <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", class: "form-control" %>
                         </div>
 
-                        <div class="field">
+                        <div class="field col-6">
                           <%= f.label :lastname, "Nom", class: "c-white"  %><br />
-                          <%= f.text_field :lastname, autocomplete: "lastname" %>
+                          <%= f.text_field :lastname, autocomplete: "lastname", class: "form-control" %>
+                        </div>
                         </div>
 
-                        <div class="field">
+                        <div class="form-group row justify-content-center">
+                        <div class="field col-12">
                           <%= f.label :email, class: "c-white"  %><br />
-                          <%= f.email_field :email, autocomplete: "email" %>
+                          <%= f.email_field :email, autocomplete: "email", class: "form-control" %><br />
+                        </div>
                         </div>
 
-                        <div class="field">
+                        <div class="form-group row justify-content-center">
+                        <div class="field col-6">
                           <%= f.label :password, "Mot de passe", class: "c-white"  %>
                           <% if @minimum_password_length %>
-                          <em>(<%= @minimum_password_length %> characters minimum)</em>
+                          <em>(<%= @minimum_password_length %> caractères min.)</em>
                           <% end %><br />
-                          <%= f.password_field :password, autocomplete: "off" %>
+                          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
                         </div>
 
-                        <div class="field">
+                        <div class="field col-6">
                           <%= f.label :password_confirmation, "Confirmez votre mot de passe", class: "c-white"  %><br />
-                          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %><br />
                         </div>
+                      </div>
 
-                        <div class="actions">
-                          <%= f.submit "Sign up" %>
+                        <div class="actions text-center">
+                          <%= f.submit "S'inscrire", class: "btn btn-lg btn-success" %>
                         </div>
-<% end %>
+                      <% end %>
+                      </div>
 
-</div>
-</div>
-</div>
-</div>
+                  </div>
+                </div>
+
+            </div>
+        </div>
 <div class="shape-container" data-shape-fill="base-5" data-shape-position="bottom" style="height: 350px;">
 <svg class="shape-item" fill="" viewBox="0 0 1000 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M 0 246.131 C 0 246.131 31.631 250.035 47.487 249.429 C 65.149 248.755 82.784 245.945 99.944 241.732 C 184.214 221.045 222.601 171.885 309.221 166.413 C 369.892 162.581 514.918 201.709 573.164 201.709 C 714.375 201.709 772.023 48.574 910.547 21.276 C 939.811 15.509 1000 24.025 1000 24.025 L 1000 300.559 L -0.002 300.559 L 0 246.131 Z"></path>
