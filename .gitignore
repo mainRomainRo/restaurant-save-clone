@@ -28,3 +28,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore automatic directory create by macOSX
+.DS_Store
+
+# If keys are present, Ignore it !
+.env
