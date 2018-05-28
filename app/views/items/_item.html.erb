@@ -1,17 +1,54 @@
+  <div class="col-lg-3">
+      <div class="card card-product mb-60 z-depth-1-top z-depth-2--hover">
+          <div class="card-body">
+            <h2 class="heading heading-6 strong-600 mt-2 mb-3">
+              <a href="#"><%= item.title %></a>
+            </h2>
+            <div class="card-image swiper-js-container">
+              <div class="">
+                  <div class="swiper-container" data-swiper-items="1" data-swiper-space-between="0">
+                      <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                              <%= image_tag "#{item.image_url}", class: "img-fluid img-center img-primary" %>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
 
-  <div class="masonry-item col-lg-4 col-md-6 px-4">
-    <div class="block block-image-holder mb-0 image-animate-wrapper">
-      <div class="block-image image-animate--hover">
-        <a href="#">
-        <%= image_tag "#{item.image_url}", class: " border rounded" %>
-        </a>
+            <div class="mt-3">
+              <div class="price-wrapper">
+                  <span class="price price-sm c-gray-dark">
+                      <span class="strong-300">€ </span><span class="price-value strong-600"><%= (item.price).round %></span><small class="strong-300">.00</small>
+                  </span>
+                  <span class="clearfix"></span>
+              </div>
+              <h6 class="heading heading-sm strong-400 c-red">New!</h6>
+              <p class="product-description mt-0 mb-0 txt">
+                  <%= item.description %>
+              </p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="product-buttons">
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <button type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title="Favorite">
+                            <i class="ion-ios-heart"></i>
+                        </button>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title="Compare">
+                            <i class="ion-ios-browsers-outline"></i>
+                        </button>
+                    </div>
+                    <div class="col-8">
+                        <button type="button" class="btn btn-block btn-base-1 btn-circle btn-icon-left">
+                            <i class="icon ion-android-cart"></i>Add to cart
+                        </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-
-      <div class="card-body px-0">
-        <div class="">
-          <%= link_to item.title, item_path(item.id), class: "heading heading-5 strong-500" %>
-          <p class="c-gray-light mt-2 d-none">item.description</p>
-        </div>
-      </div>
-    </div>
   </div>
