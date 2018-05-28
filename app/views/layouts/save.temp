@@ -1,0 +1,57 @@
+<div class="body-wrap top-navbar">
+   <div class="d-flex justify-content-around">
+        <nav class="top-navbar-menu container-top col-lg-12 -flex">
+            <ul class="top-menu">
+              <li><a class="navbar-brand" href="<%= root_path %>">
+                <%= image_tag "logo-1-d.png" %>
+              </a></li>
+              <li class="nav-item dropdown megamenu">
+                <a class="nav-link" href="#">Overview</a>
+              </li>
+              <li><a href="#">Sign in</a></li>
+              <li><a href="#">Create account</a></li>
+              <li><a href="#" data-toggle="global-search"><i class="fa fa-search"></i></a></li>
+              <li class="dropdown">
+                <a href="#">
+                  <i class="fa fa-shopping-cart"></i>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <div class="dropdown-cart px-0">
+                      <div class="dc-header">
+                        <h3 class="heading heading-6 strong-600">Cart</h3>
+                      </div>
+                      <div class="dc-item py-4">
+                        <span class="subtotal-text">Subtotal</span>
+                        <span class="subtotal-amount">€0.00</span>
+                      </div>
+                      <div class="py-4 text-center">
+                        <ul class="inline-links inline-links--style-3">
+                          <li class="pr-3">
+                            <a href="#" class="link link--style-2 text-capitalize">
+                              <i class="ion-person"></i> My account
+                            </a>
+                          </li>
+                          <li class="pr-3">
+                            <a href="#" class="link link--style-1 text-capitalize">
+                              <i class="ion-bag"></i> View cart
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" class="link link--style-1 text-capitalize">
+                              <i class="ion-forward"></i> Checkout
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#" class="btn-st-trigger" data-effect="st-effect-1"><i class="fa fa-ellipsis-h"></i></a>
+              </li>
+            </ul>
+
+        </nav>
+    </div>
+</div>

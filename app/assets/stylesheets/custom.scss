@@ -5,8 +5,6 @@
 @import "stylesheets/font-awesome";
 @import "stylesheets/animate";
 @import "stylesheets/boomerang";
-
-
 @import "stylesheets/hamburgers";
 @import "stylesheets/swiper";
 
@@ -18,11 +16,6 @@
   height: 4vh;
 }
 
-.top-navbar-menu {
-  float: none;
-}
-
-.container-top {
-  margin: 0 15px;
-
+.items {
+  height: 10vh;
 }

@@ -10,6 +10,8 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    set_item
+    @title = ""
   end
 
   # GET /items/new
@@ -69,6 +71,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.fetch(:item, {})
+       params.require(:item).permit(:title, :description, :price, :image_url)
     end
 end
