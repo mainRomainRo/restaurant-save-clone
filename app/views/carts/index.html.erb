@@ -8,6 +8,7 @@
           <th>Article</th>
           <th>Prix</th>
           <th>Quantité</th>
+          <th></th>
         </tr>
       </thead>
       <% if @cart.added_items.length > 0 %>
@@ -16,13 +17,19 @@
           <tr scope="row">
             <td><%= item.title %></td>
             <td><%= (item.price).round %> €</td>
-            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-            <td><%= link_to 'Voir', thumbnail_path(item.id), remote: true %></td>
+            <td><%= link_to 'Retirer', {action: :delete_to_cart, cart: @cart, item: item}, method: :delete, class: "btn btn-danger" %></td>
+            <td><%= link_to 'Aperçu', thumbnail_path(item.id), remote: true %></td>
           </tr>
         <% end %>
+        <tr scope="row">
+          <td></td>
+          <td><strong>TOTAL</strong></td>
+          <td><strong><%= @total.round %> €</strong></td>
+          <td> <%= link_to 'Passer la commande', create_order_path, method: :post, class: "btn btn-success" %></td>
+        </tr>
       </tbody>
     </table>
-      <%= link_to 'Passer la commande', create_order_path, method: :post %>
+
       <% else %>
       <p>Paner vide!</p>
       <%= "Panier id : #{@cart.id}" %>
