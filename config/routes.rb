@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'pages#index'
+  get '/about', to: 'pages#about'
   resources :items
   get '/signup', to: 'users#new', as: 'signup'
   get    '/login',   to: 'sessions#new', as: 'login'

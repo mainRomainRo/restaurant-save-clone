@@ -10,8 +10,8 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @items = Item.all
     set_item
-    @title = ""
   end
 
   # GET /items/new
