@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  helper_method :set_user
+  before_action :configure_permitted_parameters, :set_user, if: :devise_controller?
+
+  def set_user
+    @user = current_user
+  end
 
   protected
 

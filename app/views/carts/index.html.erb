@@ -8,9 +8,9 @@
       <th>Quantité</th>
     </tr>
   </thead>
-  <% if @cart.items.length > 0 %>
+  <% if @cart.added_items.length > 0 %>
   <tbody>
-    <% @user.items.each do |item| %>
+    <% @user.added_items.each do |item| %>
       <tr scope="row">
         <td><%= item.title %></td>
         <td><%= (item.price).round %> €</td>

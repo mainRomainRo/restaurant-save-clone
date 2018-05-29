@@ -1,12 +1,13 @@
 
 <div class="col">
   <div class="card mb-3" style="width: 16rem;height: 29rem;" >
-    <%= image_tag "#{item.image_url}", class: "card-img-top", size: '100x180'%>
+    <%= image_tag "#{item.image_url}", class: "card-img-top", size: 'auto'%>
     <div class="card-body">
       <h5 class="card-title"><%= item.title %></h5>
       <p class="card-text" style="height: 3rem;"><%= item.description %></p>
       <p class="card-text"><small class="text-muted"><%= item.price %> €</small></p>
-      <a href="<%= item_path(item) %>" class="btn btn-primary">Show item</a>
+      <a href="<%= item_path(item) %>" class="btn btn-info">Show </a>
+      <a href="<%= item_path(item) %>" class="btn btn-warning">Buy</a>
     </div>
   </div>
 </div>

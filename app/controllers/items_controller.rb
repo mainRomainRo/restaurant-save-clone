@@ -5,11 +5,13 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    @user = current_user
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
+    @user = current_user
     @items = Item.all
     set_item
   end

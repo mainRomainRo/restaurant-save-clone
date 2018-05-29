@@ -1,10 +1,11 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy, :index]
+  before_action :set_cart, :set_user, only: [:show, :edit, :update, :destroy, :index]
 
   # GET /carts
   # GET /carts.json
   def index
     @user = current_user
+    @items = @user.added_items
       if Item.where(user: @user)
         @total = calcul_total
       end
@@ -97,7 +98,7 @@ class CartsController < ApplicationController
 
     def calcul_total
       @total = 0
-      @cart.items.each do |item|
+      @cart.added_items.each do |item|
         @total += item.price
       end
       return @total

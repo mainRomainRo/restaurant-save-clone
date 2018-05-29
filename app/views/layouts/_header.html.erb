@@ -28,6 +28,8 @@
             <i class="fa fa-user-circle"></i> Account
           </button>
           <div class="dropdown-menu dropdown-menu-right">
+            <p class="dropdown-item"><%= link_to 'Mon panier', mon_panier_path, class: "btn btn-info" %></p>
+            <div class="dropdown-divider"></div>
             <p class="dropdown-item"><%= link_to 'Settings', edit_user_registration_path, class: "btn btn-warning" %></p>
             <div class="dropdown-divider"></div>
             <p class="dropdown-item"><%= link_to 'Log Out!', destroy_user_session_path, method: :delete, class: "btn btn-danger" %></p>
@@ -43,6 +45,7 @@
           <%= render 'items/innercart' %>
           <div class="dropdown-divider"></div>
           <span class="dropdown-item-text">SubTotal</span>
+          <div class="dropdown-divider"></div>
           <p class="dropdown-item">Total</p>
         </div>
       </div>
