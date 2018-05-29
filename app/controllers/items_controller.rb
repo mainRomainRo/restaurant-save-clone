@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:index, :edit, :update, :destroy]
+  before_action :require_admin, only: [:index, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json

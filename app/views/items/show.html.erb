@@ -2,19 +2,17 @@
 <div class="container w-50 border">
   <div class="mb-3 d-flex column justify-center">
     <%= image_tag "#{@item.image_url}", class: "img-fluid logo", size: "auto"%>
-  <div class="card-body">
-    <h5 class="card-title"><%= @item.title %></h5>
-    <h3 class="card-title"><%= @item.price %> €</h3>
-    <p class="card-text"><%= @item.description %></p>
-    <p class="card-text"><small class="text-muted">Last updated <%= rand(1..120) %> mins ago</small></p>
-    <% if current_user %>
-    <%= link_to 'Buy', adding_path(@item), method: 'post', class: "btn btn-info" %>
-    <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning"%>
-    <%= link_to 'Back', items_path, class: "btn btn-light"%>
-    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @item.title %></h5>
+      <h3 class="card-title"><%= @item.price %> €</h3>
+      <p class="card-text"><%= @item.description %></p>
+      <p class="card-text"><small class="text-muted">Last updated <%= rand(1..120) %> mins ago</small></p>
+      <% if current_user %>
+      <%= link_to 'Buy', adding_path(@item), method: 'post', class: "btn btn-info" %>
+      <% end %>
+      <% if current_user.role == "admin" %>
+      <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning"%>
+      <% end %>
+    </div>
   </div>
-
-
-
-</div>
 </div>

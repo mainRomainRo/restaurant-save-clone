@@ -7,4 +7,9 @@ class PagesController < ApplicationController
     @items = Item.all
     @user = current_user
   end
+  def admin
+    @items = Item.all
+    @user = current_user
+    @users = User.all
+  end
 end
