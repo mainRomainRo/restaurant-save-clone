@@ -21,12 +21,12 @@
           </tr>
         <% end %>
       </tbody>
-        <%= "Panier id : #{@cart.id}" %>
-        <% else %>
-        <p>Paner vide!</p>
-        <%= "Panier id : #{@cart.id}" %>
-        <% end %>
     </table>
+      <%= link_to 'Passer la commande', create_order_path, method: :post %>
+      <% else %>
+      <p>Paner vide!</p>
+      <%= "Panier id : #{@cart.id}" %>
+      <% end %>
   </div>
 
   <div class="col-3">
