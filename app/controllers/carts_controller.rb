@@ -1,19 +1,27 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, only: [:show, :edit, :update, :destroy, :index]
 
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @user = current_user
+      if Item.where(user: @user)
+        @total = calcul_total
+      end
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @user = current_user
-    if @user.items.length > 0
-      @total = calcul_total
-    end
+
+    @item = Item.all.find_by(id: params[:id])
+
+      respond_to do |f|
+        f.js   { render :layout => false }
+        f.html { redirect_to root_url }
+        f.json { head :no_content }
+      end
+
   end
 
   # GET /carts/new
@@ -70,10 +78,15 @@ class CartsController < ApplicationController
     def set_cart
       if user_signed_in? && current_user.cart
         @cart = current_user.cart
+      elsif user_signed_in?
+        @cart = Cart.create(user: current_user)
       elsif @cart = Cart.find_by(id: session[:cart_id])
       else
-        @cart = Cart.create
-        session[:cart_id] = @cart.id
+        flash.now[:notice] = "Merci de vous connecter pour accéder à cette page."
+        redirect_to new_user_session_path
+        # p session[:session_id]
+        # @cart = Cart.create(user: session[:session_id])
+        # session[:cart_id] = @cart.id
       end
     end
 
