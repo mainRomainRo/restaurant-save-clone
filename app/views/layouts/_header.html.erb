@@ -1,35 +1,64 @@
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
+  <a class="navbar-brand" href="<%= root_path %>"><img src="https://www.minoulechat.com/wp-content/themes/minoulechat/img/logo.png" style="height: 8vh;"/></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+
+  <div class="collapse navbar-collapse d-flex bd-highlight" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto p-2 w-100 bd-highlight">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%= root_path %>">Home</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= about_path %>">About</a>
+      </li>
+      <% if user_signed_in? %>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link disabled" href="#">Welcome <%= (current_user.firstname).capitalize! %></a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+      <% end %>
+    </ul>
+    <% if user_signed_in? %>
+    <ul class="navbar-nav w-auto d-flex">
+      <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
+        <div class="btn-group">
+          <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-circle"></i> Account
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <p class="dropdown-item"><%= link_to 'Settings', edit_user_registration_path, class: "btn btn-warning" %></p>
+            <div class="dropdown-divider"></div>
+            <p class="dropdown-item"><%= link_to 'Log Out!', destroy_user_session_path, method: :delete, class: "btn btn-danger" %></p>
+          </div>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
+      <div class="btn-group">
+        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-shopping-cart"></i> Panier
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <%= render 'items/innercart' %>
+          <div class="dropdown-divider"></div>
+          <span class="dropdown-item-text">SubTotal</span>
+          <p class="dropdown-item">Total</p>
+        </div>
+      </div>
+    </li>
+    <% else %>
+    <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
+        <a href="<%= new_user_registration_path %>" class="btn btn-warning" >
+          <i class="fa fa-user-secret"></i> Sign up now !
+        </a>
+    </li>
+    <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
+        <a href="<%= new_user_session_path %>" class="btn btn-success" >
+          <i class="fa fa-user"></i> Log in now !
+        </a>
+    </li>
+  <% end %>
+        </ul>
   </div>
 </nav>

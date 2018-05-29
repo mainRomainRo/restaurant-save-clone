@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'pages#index'
+  get '/about', to: 'pages#about'
   resources :items
   get :mon_panier, to: "carts#index", as: :mon_panier
   get "thumbnail/:id", to: "carts#show", as: :thumbnail

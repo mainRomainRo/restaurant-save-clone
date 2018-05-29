@@ -1,0 +1,11 @@
+
+<% @items.each do |item| %>
+  <div class="dropdown-item">
+    <div class="d-flex bd-highlight">
+      <div class="p-2 flex-fill bd-highlights"><%= item.title %></div>
+      <div class="p-2 flex-fill bd-highlight"><%= image_tag "#{item.image_url}", size: "30x30"%></div>
+      <div class="p-2 flex-fill bd-highlight"><%= item.price %> € </div>
+      <div class="p-2 flex-fill bd-highlight"><%= link_to 'Show', item, class: "btn btn-light-info" %></div>
+    </div>
+  </div>
+<% end %>

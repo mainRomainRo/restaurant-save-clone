@@ -23,6 +23,8 @@ gem 'bootstrap', '~> 4.1.1'
 
 gem 'popper_js', '~> 1.12.9'
 
+gem "font-awesome-rails"
+
 # Auth
 gem 'devise'
 

@@ -4,18 +4,16 @@
     <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="icon" href="http://natachaton.com/wp-content/uploads/2015/06/logo_chaton2-e1434753175996.png" />
     <title>e-Chatons Team BDX</title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
   </head>
 
-  <body>
-      <%= render 'layouts/header' %>
-        <%= yield %>
-      <%= render 'layouts/footer' %>
+  <body class="site">
+      <div class="site-header"><%= render 'layouts/header' %></div>
+        <div class="site-content"><%= yield %></div>
+      <div class="site-footer"><%= render 'layouts/footer' %></div>
   </body>
 </html>
