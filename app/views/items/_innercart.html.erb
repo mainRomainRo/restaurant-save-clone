@@ -1,14 +1,17 @@
-<% if @user.added_items.length > 0 %>
+<% if @user.added_items != nil %>
   <% @user.added_items.each do |item| %>
-    <div class="dropdown-item">
+    <div class="dropdown-item-text">
       <div class="d-flex bd-highlight">
-        <div class="p-2 flex-fill bd-highlights"><%= item.title %></div>
-        <div class="p-2 flex-fill bd-highlight"><%= image_tag "#{item.image_url}", size: "30x30"%></div>
-        <div class="p-2 flex-fill bd-highlight"><%= item.price %> € </div>
-        <div class="p-2 flex-fill bd-highlight"><%= link_to 'Show', item, class: "btn btn-light-info" %></div>
+        <div class="p-2 bd-highlights"><%= item.title %></div>
+        <div class="p-2 bd-highlights"><%= image_tag "#{item.image_url}", size: "40x40"%></div>
+        <div class="p-2 bd-highlights"><%= item.price %> €</div>
       </div>
     </div>
   <% end %>
+  <div class="dropdown-divider"></div>
+  <span class="dropdown-item-text">SubTotal</span>
+  <div class="dropdown-divider"></div>
+  <h2 class="dropdown-item-text text-right"><%= calcul_total %> €</h2>
 <% else %>
 <div class="dropdown-item">
   <p>Panier vide</p>

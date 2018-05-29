@@ -15,7 +15,7 @@
         <td><%= item.title %></td>
         <td><%= (item.price).round %> €</td>
         <td><%= link_to 'Voir', thumbnail_path(item.id), remote: true %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><%= link_to 'Delete', { :action => :delete_to_cart, :cart => @cart, :item => item }, method: :delete, class: "btn btn-warning" %></td>
       </tr>
     <% end %>
   </tbody>
