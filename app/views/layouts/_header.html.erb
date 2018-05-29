@@ -14,12 +14,13 @@
       <li class="nav-item active">
         <a class="nav-link" href="<%= about_path %>">About</a>
       </li>
-      <% if user_signed_in? %>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Welcome <%= (current_user.firstname).capitalize! %></a>
-      </li>
-      <% end %>
     </ul>
+      <% if user_signed_in? %>
+      <div class="nav-item w-100 text-center welc">
+        <p class="nav-link disabled" href="#">Welcome <%= (current_user.firstname).capitalize! %>!</p>
+      </div>
+      <% end %>
+
     <% if user_signed_in? %>
     <ul class="navbar-nav w-auto d-flex">
       <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
@@ -28,11 +29,11 @@
             <i class="fa fa-user-circle"></i> Account
           </button>
           <div class="dropdown-menu dropdown-menu-right">
-            <p class="dropdown-item"><%= link_to 'Mon panier', mon_panier_path, class: "btn btn-info" %></p>
+            <p class="dropdown-item trim"><%= link_to 'Mon panier', mon_panier_path, class: "btn btn-outline-info" %></p>
             <div class="dropdown-divider"></div>
-            <p class="dropdown-item"><%= link_to 'Settings', edit_user_registration_path, class: "btn btn-warning" %></p>
-            <div class="dropdown-divider"></div>
-            <p class="dropdown-item"><%= link_to 'Log Out!', destroy_user_session_path, method: :delete, class: "btn btn-danger" %></p>
+            <p class="dropdown-item trim"><%= link_to 'Settings', edit_user_registration_path, class: "btn btn-outline-warning" %></p>
+            <div class="dropdown-divider "></div>
+            <p class="dropdown-item trim"><%= link_to 'Log Out!', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %></p>
           </div>
         </div>
       </li>
