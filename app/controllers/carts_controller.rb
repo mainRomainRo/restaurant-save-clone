@@ -4,8 +4,9 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @user = current_user
-      if Item.where(user: @user)
+      @user = current_user
+      @items = @user.added_items
+      if Cart.where(user: @user)
         @total = calcul_total
       end
   end
@@ -14,7 +15,7 @@ class CartsController < ApplicationController
   # GET /carts/1.json
   def show
 
-    @item = Item.all.find_by(id: params[:id])
+    @item = Item.find_by(id: params[:id])
 
       respond_to do |f|
         f.js   { render :layout => false }
@@ -97,7 +98,7 @@ class CartsController < ApplicationController
 
     def calcul_total
       @total = 0
-      @cart.items.each do |item|
+      @cart.added_items.each do |item|
         @total += item.price
       end
       return @total
