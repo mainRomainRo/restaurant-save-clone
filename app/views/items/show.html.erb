@@ -53,8 +53,11 @@
                                                                     <div class="price-wrapper">
                                                                         <span class="price heading-6 c-gray-light strong-400">$<span class="price-value"><%= @item.price %></span></span>
                                                                     </div>
-                                                                    <%= link_to 'Edit', edit_item_path(@item) %> |
-                                                                    <%= link_to 'Back', items_path %>
+                                                                    <% if user_signed_in? %>
+                                                                    <%= link_to 'Buy', adding_path(@item), method: 'post', class: "btn btn-info" %>
+                                                                    <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning"%> |
+                                                                    <%= link_to 'Back', items_path, class: "btn btn-light"%>
+                                                                    <% end %>
                                                                 </div>
                                                             </div>
                                                         </div>

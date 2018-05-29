@@ -1,6 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart, :set_user, only: [:show, :edit, :update, :destroy, :index]
-
+  before_action :set_cart, only: [:show, :edit, :update, :destroy, :index, :add_to_cart, :delete_to_cart]
   # GET /carts
   # GET /carts.json
   def index
@@ -64,14 +63,37 @@ class CartsController < ApplicationController
     end
   end
 
-  # DELETE /carts/1
-  # DELETE /carts/1.json
+
   def destroy
-    @cart.destroy
+    @cart.added_items.delete(set_item)
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to mon_panier_path, notice: 'Cart was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_to_cart
+    set_item
+
+    if @cart.added_items << @item
+      flash.now[:success] = "Element ajouté à votre panier"
+      redirect_to mon_panier_path
+    end
+  end
+
+  def delete_to_cart
+    @cart = Cart.find(cart_params[:cart])
+    @item = Item.find(cart_params[:item])
+    @cart.added_items.delete(@item)
+    redirect_to mon_panier_path
+  end
+
+  def calcul_total
+    @total = 0
+    @cart.added_items.each do |item|
+      @total += item.price
+    end
+    return @total
   end
 
   private
@@ -93,14 +115,9 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.fetch(:cart, {})
+      params.permit(:cart, :item)
     end
 
-    def calcul_total
-      @total = 0
-      @cart.added_items.each do |item|
-        @total += item.price
-      end
-      return @total
-    end
+
+
 end

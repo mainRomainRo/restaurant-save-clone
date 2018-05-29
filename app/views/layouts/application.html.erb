@@ -13,6 +13,18 @@
 
   <body class="site">
       <div class="site-header"><%= render 'layouts/header' %></div>
+      <div id="container text-center">
+        <% if flash[:success] %>
+        <p class="btn btn-outline-success"><%= flash[:success] %></p>
+        <% end %>
+        <% if flash[:notice] %>
+        <p class="btn btn-outline-info"><%= flash[:notice] %></p>
+        <% end %>
+        <% if flash[:error] %>
+        <p class="btn btn-outline-danger"><%= flash[:error] %></p>
+        <% end %>
+        <% flash[:error] = flash[:notice] = flash[:success] = nil %>
+    </div>
         <div class="site-content"><%= yield %></div>
       <div class="site-footer"><%= render 'layouts/footer' %></div>
   </body>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
   <a class="navbar-brand" href="<%= root_path %>"><img src="https://www.minoulechat.com/wp-content/themes/minoulechat/img/logo.png" style="height: 8vh;"/></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler btn-lg" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -24,7 +24,7 @@
     <ul class="navbar-nav w-auto d-flex">
       <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
         <div class="btn-group">
-          <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn btn-dark dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-user-circle"></i> Account
           </button>
           <div class="dropdown-menu dropdown-menu-right">
@@ -38,15 +38,11 @@
       </li>
     <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
       <div class="btn-group">
-        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-dark dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-shopping-cart"></i> Panier
         </button>
         <div class="dropdown-menu dropdown-menu-right">
           <%= render 'items/innercart' %>
-          <div class="dropdown-divider"></div>
-          <span class="dropdown-item-text">SubTotal</span>
-          <div class="dropdown-divider"></div>
-          <p class="dropdown-item">Total</p>
         </div>
       </div>
     </li>
