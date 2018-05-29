@@ -19,14 +19,16 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails'
 
-gem 'popper_js'
+gem 'bootstrap', '~> 4.1.1'
+
+gem 'popper_js', '~> 1.12.9'
 
 # Auth
 gem 'devise'
 
 # e-commerce
 gem 'stripe'
-#
+
 # # APIs
 # gem 'twitter'
 # gem 'gmail'
