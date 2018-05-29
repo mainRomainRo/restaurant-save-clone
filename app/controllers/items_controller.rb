@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:index, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -69,6 +70,12 @@ class ItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
 
+      def require_login
+        unless user_signed_in?
+          flash[:error] =  "Merci de vous connecter pour accéder à cette page."
+          redirect_to new_user_registration_path # halts request cycle
+        end
+      end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
