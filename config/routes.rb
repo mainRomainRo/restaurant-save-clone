@@ -3,10 +3,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get '/about', to: 'pages#about'
   resources :items
-  get '/signup', to: 'users#new', as: 'signup'
-  get    '/login',   to: 'sessions#new', as: 'login'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy', as:'logout'
-  get '/item/:id', to: "items#show"
+  get :mon_panier, to: "carts#index", as: :mon_panier
+  get "thumbnail/:id", to: "carts#show", as: :thumbnail
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

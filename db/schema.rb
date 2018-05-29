@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_28_084009) do
+ActiveRecord::Schema.define(version: 2018_05_29_094934) do
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "added_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["added_item_id"], name: "index_cart_items_on_added_item_id"
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "item_orders", force: :cascade do |t|
+    t.integer "purchased_item_id"
+    t.integer "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_item_orders_on_order_id"
+    t.index ["purchased_item_id"], name: "index_item_orders_on_purchased_item_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "title"
@@ -19,6 +44,13 @@ ActiveRecord::Schema.define(version: 2018_05_28_084009) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

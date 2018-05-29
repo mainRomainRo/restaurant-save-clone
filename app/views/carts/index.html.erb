@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+  <thead>
+    <tr class="text-align-center">
+      <th>Article</th>
+      <th>Prix</th>
+      <th>Quantité</th>
+    </tr>
+  </thead>
+  <% if @cart.items.length > 0 %>
+  <tbody>
+    <% @user.items.each do |item| %>
+      <tr scope="row">
+        <td><%= item.title %></td>
+        <td><%= (item.price).round %> €</td>
+        <td><%= link_to 'Voir', thumbnail_path(item.id), remote: true %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+    <%= "Panier id : #{@cart.id}" %>
+    <% else %>
+    <p>Paner vide!</p>
+    <%= "Panier id : #{@cart.id}" %>
+    <% end %>
+</table>
+
+
+
+<div id="item-content"></div>
