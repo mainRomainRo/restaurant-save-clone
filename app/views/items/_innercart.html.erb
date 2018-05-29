@@ -1,10 +1,12 @@
+<% if user_signed_in? %>
 <% if @user.added_items != nil %>
   <% @user.added_items.each do |item| %>
     <div class="dropdown-item-text">
       <div class="d-flex bd-highlight">
         <div class="p-2 bd-highlights"><%= item.title %></div>
         <div class="p-2 bd-highlights"><%= image_tag "#{item.image_url}", size: "40x40"%></div>
-        <div class="p-2 bd-highlights"><%= item.price %> €</div>
+        <div class="p-2 bd-highlights"><%= item.price %></div>
+        <div class="p-2 bd-highlights">€</div>
       </div>
     </div>
   <% end %>
@@ -16,4 +18,5 @@
 <div class="dropdown-item">
   <p>Panier vide</p>
 </div>
+<% end %>
 <% end %>

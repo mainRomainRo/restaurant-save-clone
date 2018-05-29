@@ -7,9 +7,6 @@ module ItemsHelper
       @added_items.each do |item|
         @total += item.price
       end
-      p "salope"
-      p @total
-      p "bab"
       return @total
     end
 

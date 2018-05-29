@@ -1,0 +1,32 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Email</th>
+        <th scope="col">Date of creation</th>
+        <th scope="col">Last date of connection</th>
+        <th scope="col">Admin</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <th scope="row"><%= user.id %></th>
+          <td><%= user.firstname %></td>
+          <td><%= user.lastname %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at %></th>
+          <td><%= user.last_sign_in_at %></th>
+          <% if user.role == "admin" %>
+            <td>true</td>
+          <% else %>
+            <td>False</td>
+          <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

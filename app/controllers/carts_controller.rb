@@ -1,6 +1,9 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :index, :add_to_cart, :delete_to_cart]
   # GET /carts
+  before_action :require_login, only: [:show, :edit, :update, :destroy, :index, :add_to_cart, :delete_to_cart]
+
+
   # GET /carts.json
   def index
       @user = current_user
@@ -104,7 +107,7 @@ class CartsController < ApplicationController
         @cart = Cart.create(user: current_user)
       elsif @cart = Cart.find_by(id: session[:cart_id])
       else
-        flash.now[:notice] = "Merci de vous connecter pour accéder à cette page."
+        flash[:notice] = "Merci de vous connecter pour accéder à cette page."
         redirect_to new_user_session_path
         # p session[:session_id]
         # @cart = Cart.create(user: session[:session_id])
@@ -117,6 +120,12 @@ class CartsController < ApplicationController
       params.permit(:cart, :item)
     end
 
+      def require_login
+        unless user_signed_in?
+          flash[:error] =  "Merci de vous connecter pour accéder à cette page."
+          redirect_to redirect_to new_user_registration_path # halts request cycle
+        end
+      end
 
 
 end
