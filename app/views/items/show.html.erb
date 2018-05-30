@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="container w-50 border">
   <div class="mb-3 d-flex column justify-center">
-    <%= image_tag "#{@item.image_url}", class: "img-fluid logo", size: "auto"%>
+    <%= cl_image_tag @item.item_pic_url, class: "img-fluid logo" %>
     <div class="card-body">
       <h5 class="card-title"><%= @item.title %></h5>
       <h3 class="card-title"><%= @item.price %> €</h3>

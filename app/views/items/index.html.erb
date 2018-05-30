@@ -19,7 +19,11 @@
       <% @items.each do |item| %>
         <tr scope="row text-center">
           <td><%= item.title %></td>
+<<<<<<< HEAD
           <td><%= image_tag "#{item.image_url}", class: "items", size: "150x150" %></td>
+=======
+          <td><%= cl_image_tag item.item_pic_url, class: "items" %></td>
+>>>>>>> 250e08d90a8d861da5e8928db7269052e1f7a66a
           <td><%= item.description %></td>
           <td><%= (item.price).round %> €</td>
           <th class="d-flex flex-column mt-3 mb-3"><%= link_to 'Show', item_path(item), class: "btn btn-primary" %></th>

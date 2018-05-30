@@ -1,7 +1,7 @@
 
 <div class="col">
   <div class="card mb-3" style="width: 16rem;height: 29rem;" >
-    <%= image_tag "#{item.image_url}", class: "card-img-top", size: 'auto'%>
+    <%= image_tag item.item_pic_url, class: "card-img-top" %>
     <div class="card-body">
       <h5 class="card-title"><%= item.title %></h5>
       <p class="card-text" style="height: 3rem;"><%= item.description %></p>

@@ -14,4 +14,8 @@ class Item < ApplicationRecord
 
   has_many :users, through: :orders
 
+  attr_accessor :item_pic
+
+  mount_uploader :item_pic, ItemPicUploader
+
 end
