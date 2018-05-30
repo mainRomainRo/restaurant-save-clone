@@ -8,20 +8,13 @@
   <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
 
     <ul class="navbar-nav mr-auto p-2 w-100">
-      <li class="nav-item btn btn-info mr-4">
-        <a class="nav-link" href="<%= root_path %>">Home</a>
-      </li>
-      <li class="nav-item btn btn-info mr-4">
-        <a class="nav-link" href="<%= about_path %>">About</a>
-      </li>
-      <% if user_signed_in? %>
-      <li class="nav-item btn btn-info mr-4">
-        <a class="nav-link">Welcome <%= (current_user.firstname).capitalize! %>!</a>
-      </li>
-      <% end %>
+      <li> </li>
       <% if user_admin? %>
-      <li class="nav-item btn btn-danger">
-        <a class="nav-link" href="<%= admin_path %>">Role:<%= (current_user.role).capitalize! %>!</a>
+      <li class="nav-item btn btn-danger mr-3">
+        <%= link_to "Gestion des utilisateurs", admin_path, class: "nav-item btn btn-danger" %>
+      </li>
+      <li class="nav-item btn btn-danger mr-3">
+        <%= link_to "Gestion des items", items_path, class: "nav-item btn btn-danger" %>
       </li>
       <% end %>
     </ul>
@@ -45,12 +38,12 @@
     <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
       <div class="btn-group">
         <button type="button" class="btn btn-dark dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-user-circle"></i> Account
+          <i class="fa fa-user-circle"></i> Compte
         </button>
         <div class="dropdown-menu dropdown-menu-right">
           <p class="dropdown-item trim"><%= link_to 'Mon profil', mon_profil_path, class: "btn btn-outline-secondary" %></p>
           <div class="dropdown-divider"></div>
-          <p class="dropdown-item trim"><%= link_to 'Settings', edit_user_registration_path, class: "btn btn-outline-warning" %></p>
+          <p class="dropdown-item trim"><%= link_to 'Paramètres', edit_user_registration_path, class: "btn btn-outline-warning" %></p>
           <div class="dropdown-divider "></div>
           <p class="dropdown-item trim"><%= link_to 'Log Out!', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %></p>
         </div>
