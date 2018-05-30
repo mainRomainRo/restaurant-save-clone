@@ -1,6 +1,6 @@
 ---
 development:
-  cloud_name: ENV['CLOUD_NAME']
+  cloud_name: ENV['CLOUD_FOLDER_NAME']
   api_key: ENV['CLOUD_API_KEY']
   api_secret: ENV['CLOUD_API_SECRET']
   enhance_image_tag: true
