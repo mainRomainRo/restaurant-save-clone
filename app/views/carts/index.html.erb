@@ -1,41 +1,35 @@
 <p id="notice"><%= notice %></p>
-
-<div class="row justify-content-center">
-  <div class="col-8">
-    <table class="table">
-      <thead>
-        <tr class="text-align-center">
-          <th>Article</th>
-          <th>Prix</th>
-          <th>Quantité</th>
-          <th></th>
+<div class="container-fluid w-75 text-center d-flex flex-column align-center">
+  <table class="table table-bordered">
+  <% if @cart.added_items.length > 0 %>
+    <thead>
+      <tr class="text-align-center table-active">
+        <th>Article</th>
+        <th>Prix</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.added_items.each do |item| %>
+        <tr scope="row text-center align-center">
+          <td><%= image_tag "#{item.image_url}", size: "30x30" %>    <%= item.title %></td>
+          <td><%= (item.price).round %> €</td>
+          <td><%= link_to 'Aperçu', thumbnail_path(item.id), remote: true, class: "btn btn-info" %>
+          <%= link_to 'Retirer', {action: :delete_to_cart, cart: @cart, item: item.cart_items.where(cart_id: @cart).ids.last}, method: :delete, class: "btn btn-danger" %></td>
         </tr>
-      </thead>
-      <% if @cart.added_items.length > 0 %>
-      <tbody>
-        <% @user.added_items.each do |item| %>
-          <tr scope="row">
-            <td><%= item.title %></td>
-            <td><%= (item.price).round %> €</td>
-            <td><%= link_to 'Retirer', {action: :delete_to_cart, cart: @cart, item: item.cart_items.where(cart_id: @cart).ids.last}, method: :delete, class: "btn btn-danger" %></td>
-            <td><%= link_to 'Aperçu', thumbnail_path(item.id), remote: true %></td>
-          </tr>
-        <% end %>
+      <% end %>
         <tr scope="row">
           <td></td>
           <td><strong>TOTAL</strong></td>
           <td><strong><%= @total.round %> €</strong></td>
           <td> <%= link_to 'Passer la commande', create_order_path, method: :post, class: "btn btn-success" %></td>
         </tr>
-      </tbody>
-    </table>
-
+    </tbody>
       <% else %>
-      <p>Paner vide!</p>
-      <%= "Panier id : #{@cart.id}" %>
-      <% end %>
-  </div>
 
+      <h4>Paner vide! 🤭 😦</h4>
+      <% end %>
+  </table>
   <div class="col-3">
     <div id="item-content"></div>
   </div>

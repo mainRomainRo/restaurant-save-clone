@@ -1,0 +1,7 @@
+<div class="container w-50 text-center">
+  <h1>Hello <%= @user.firstname.capitalize! %> <%= @user.lastname.upcase! %>.</h1>
+
+  <% if user_admin? %>
+    <h4>Tu es super <%= @user.role %>.</h4>
+  <% end %>
+</div>

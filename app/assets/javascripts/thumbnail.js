@@ -1,3 +1,3 @@
 function clearThumbnail () {
-  $('#item-content').html("");
+ $('#item-content').html("");
 }
