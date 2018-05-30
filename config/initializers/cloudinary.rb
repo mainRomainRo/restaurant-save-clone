@@ -1,5 +1,9 @@
 Cloudinary.config do |config|
-  CLOUDINARY_URL=ENV['CLOUDINARY_SECRET_URL']
+  config.cloud_name: ENV['CLOUD_FOLDER_NAME']
+  config.api_key: ENV['CLOUD_API_KEY']
+  config.api_secret: ENV['CLOUD_API_SECRET']
   config.secure = true
   config.cdn_subdomain = true
 end
+
+CLOUDINARY_URL=ENV['CLOUDINARY_SECRET_URL']
