@@ -13,15 +13,15 @@
 
   <body class="site">
       <div class="site-header"><%= render 'layouts/header' %></div>
-      <div id="container-fluid text-center">
+      <div class="text-center w-100 mx-auto">
         <% if flash[:success] %>
-        <p class="btn btn-outline-success"><%= flash[:success] %></p>
+        <p class="btn btn-outline-success w-75"><%= flash[:success] %></p>
         <% end %>
         <% if flash[:notice] %>
-        <p class="btn btn-outline-info"><%= flash[:notice] %></p>
+        <p class="btn btn-outline-info w-75"><%= flash[:notice] %></p>
         <% end %>
         <% if flash[:error] %>
-        <p class="btn btn-outline-danger"><%= flash[:error] %></p>
+        <p class="btn btn-outline-danger w-75"><%= flash[:error] %></p>
         <% end %>
         <% flash[:error] = flash[:notice] = flash[:success] = nil %>
     </div>

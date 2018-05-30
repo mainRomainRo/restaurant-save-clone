@@ -7,14 +7,14 @@
 
   <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
 
-    <ul class="navbar-nav mr-auto p-2 w-100">
+    <ul class="navbar-nav mr-auto p-2 w-25">
       <li> </li>
       <% if user_admin? %>
-      <li class="nav-item btn btn-danger mr-3">
-        <%= link_to "Gestion des utilisateurs", admin_path, class: "nav-item btn btn-danger" %>
+      <li class="nav-item btn btn-danger mr-3 mb-3">
+        <%= link_to "Admin : utilisateurs", admin_path, class: "nav-item link-home" %>
       </li>
-      <li class="nav-item btn btn-danger mr-3">
-        <%= link_to "Gestion des items", items_path, class: "nav-item btn btn-danger" %>
+      <li class="nav-item btn btn-danger mr-3 mb-3">
+        <%= link_to "Admin : items", items_path, class: "nav-item link-home" %>
       </li>
       <% end %>
     </ul>

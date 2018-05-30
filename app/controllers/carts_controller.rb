@@ -76,8 +76,8 @@ class CartsController < ApplicationController
   def add_to_cart
     set_item
     if @cart.added_items << @item
-      flash.now[:success] = "Element ajouté à votre panier"
-      redirect_to mon_panier_path
+      flash[:success] = "Element ajouté à votre panier"
+      redirect_to root_path
     end
   end
 

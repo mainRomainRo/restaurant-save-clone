@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @user.firstname.capitalize! %> <%= @user.lastname.upcase! %>!</h1>
+    <p>
+      Merci beaucoup pour ta commande ! Voici le récapitulatif :
+    </p>
+    <table class="blueTable">
+      <thead>
+        <tr>
+        <th>Title</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.purchased_items.each_with_index do |item, i| %>
+          <tr>
+          <td><%= item.title  %></td>
+          <td><%= image_tag "#{item.image_url}", size: "100x100" %></td>
+          <td><%= item.description %></td>
+          <td><%= item.price %> €</td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+        <td colspan="3"><h3>Subtotal</h3></td>
+        <td>
+          <h3>somme totale</h3>
+        </td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <p>Thanks for ordering and have a great day!</p>
+    <h5>The Chatons-Team : Bab & Max.</h5>
+    <h5>❤️</h5>
+  </body>
+</html>

@@ -24,7 +24,11 @@
   </div>
   <div class="col-8 my-auto">
     <div class="jumbotron align-middle">
-      <h1 class="display-4">Hello, dear customer!</h1>
+      <% if user_signed_in? %>
+      <h1 class="display-4">Hello, dear <%= @user.firstname.capitalize! %></h1>
+      <% else %>
+      <h1 class="display-4">Hello, dear @user.firstname</h1>
+      <% end %>
       <p class="lead">This is a simple e-shop unit of wonderfull cat's image. It was made with a lot of coffee ☕️, brain 🧠 and bit of 🐱.</p>
       <hr class="my-4">
       <% if !user_signed_in? %>
