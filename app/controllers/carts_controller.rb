@@ -85,8 +85,8 @@ class CartsController < ApplicationController
 
   def delete_to_cart
     @cart = Cart.find(cart_params[:cart])
-    @item = Item.find(cart_params[:item])
-    @cart.added_items.delete(@item)
+    @item = CartItem.find(cart_params[:item])
+    @cart.cart_items.destroy(@item)
     redirect_to mon_panier_path
   end
 
