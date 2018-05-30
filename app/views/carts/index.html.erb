@@ -22,7 +22,22 @@
           <td></td>
           <td><strong>TOTAL</strong></td>
           <td><strong><%= @total.round %> €</strong></td>
-          <td> <%= link_to 'Passer la commande', create_order_path, method: :post, class: "btn btn-success" %></td>
+          <td> <%= form_for @cart, url: {action: :payment, cart: @cart}, method: :post do |f| %>
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                    data-amount="<%= @total * 100 %>"
+                    data-email="<%= @user.email %>"
+                    data-name="Paiement de <%= @user.firstname %>"
+                    data-description="Pour la commande n°<%= @cart.id %>"
+                    data-image="https://www.thehackingproject.org/assets/thp-logo-5f2f06c9444205a88123ca1de74646970e5a1dfb03698d02db33e5e62a60d6cd.png"
+                    data-locale="auto"
+                    data-currency="eur"
+                    data-zip-code="false">
+                  </script>
+                <% end %>
+                <!-- <%= link_to 'Passer la commande', create_order_path, method: :post, class: "btn btn-success" %> -->
+          </td>
         </tr>
     </tbody>
       <% else %>
