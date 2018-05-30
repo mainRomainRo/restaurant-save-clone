@@ -110,7 +110,7 @@ class CartsController < ApplicationController
     end
 
   def new_charge
-    Stripe.api_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+    Stripe.api_key = ENV['STRIPE_SECRET']
     token = params.require(:stripeToken)
 
     @charge = Stripe::Charge.create({
