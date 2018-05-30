@@ -4,3 +4,11 @@
 
 <%= link_to 'Show', @item %> |
 <%= link_to 'Back', items_path %>
+
+<script>
+  $(function() {
+      if($.fn.cloudinary_fileupload !== undefined) {
+        $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+      }
+    });
+</script>

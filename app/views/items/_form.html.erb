@@ -1,26 +1,16 @@
-<%= form_with(model: item, local: true) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-      <% item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-    <form>
-      <%= form_for(:item, url: {action: "create"}) do |f| %>
+
+      <%= form_for(@item, url: {action: "update", method: :patch}) do |f| %>
         <div class="form-group">
           <%= f.label :title %>
           <%= f.text_field :title, class: 'form-control', id: "exampleFormControlInput1", placeholder: "Title of Item" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :image_url %>
-          <%= f.file_field :image_url %>
+          <%= f.label :item_pic %>
+          <%= f.hidden_field(:item_pic_cache) %>
+          <%= f.file_field(:item_pic, :folder => "trucdetest") %>
         </div>
 
         <div class="form-group">
@@ -41,10 +31,8 @@
         <div class="actions">
           <%= f.submit 'Okay !'%>
         </div>
-      </form>
+
       </div>
     </div>
 
       <% end %>
-
-<% end %>

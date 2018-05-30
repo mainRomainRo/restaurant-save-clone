@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    set_item
   end
 
   # POST /items
@@ -44,6 +45,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    set_item
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
@@ -70,6 +72,6 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-       params.require(:item).permit(:title, :description, :price, :image_url)
+       params.require(:item).permit(:title, :description, :price, :image_url, :item_pic, :item_pic_cache)
     end
 end
