@@ -1,15 +1,25 @@
 class PagesController < ApplicationController
+  before_action :require_login, only: [:admin, :profile]
+  before_action :require_admin, only: [:admin]
+
   def index
-    @items = Item.all
-    @user = current_user
+    set_all_items
+    set_user
   end
+
   def about
-    @items = Item.all
-    @user = current_user
+    set_all_items
+    set_user
   end
+
   def admin
-    @items = Item.all
-    @user = current_user
-    @users = User.all
+    set_all_items
+    set_user
+    set_all_users
   end
+
+  def profile
+    set_user
+  end
+
 end

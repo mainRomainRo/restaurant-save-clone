@@ -10,7 +10,7 @@
       <% if current_user %>
       <%= link_to 'Buy', adding_path(@item), method: 'post', class: "btn btn-info" %>
       <% end %>
-      <% if current_user.role == "admin" %>
+      <% if user_admin? %>
       <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning"%>
       <% end %>
     </div>

@@ -6,8 +6,7 @@ class CartsController < ApplicationController
 
   # GET /carts.json
   def index
-    @user = current_user
-    @items = @user.added_items
+    @items = set_user.added_items
       if Item.where(user: @user)
         @total = calcul_total
       end
@@ -16,9 +15,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-
     @item = Item.all.find_by(id: params[:id])
-
       respond_to do |f|
         f.js   { render :layout => false }
         f.html { redirect_to root_url }
@@ -108,7 +105,7 @@ class CartsController < ApplicationController
         @cart = Cart.create(user: current_user)
       elsif @cart = Cart.find_by(id: session[:cart_id])
       else
-        flash[:notice] = "Merci de vous connecter pour accéder à cette page."
+        flash[:error] = "Merci de vous connecter pour accéder à cette page."
         redirect_to new_user_session_path
         # p session[:session_id]
         # @cart = Cart.create(user: session[:session_id])
@@ -121,12 +118,7 @@ class CartsController < ApplicationController
       params.permit(:cart, :item)
     end
 
-      def require_login
-        unless user_signed_in?
-          flash[:error] =  "Merci de vous connecter pour accéder à cette page."
-          redirect_to redirect_to new_user_registration_path # halts request cycle
-        end
-      end
+
 
 
 end

@@ -1,31 +1,28 @@
 <p id="notice"><%= notice %></p>
-
-<table class="table">
-  <thead>
-    <tr class="text-align-center">
-      <th>Article</th>
-      <th>Prix</th>
-      <th>Quantité</th>
-    </tr>
-  </thead>
+<div class="container-fluid w-75 text-center d-flex flex-column align-center">
+  <table class="table table-bordered">
   <% if @cart.added_items.length > 0 %>
-  <tbody>
-    <% @user.added_items.each do |item| %>
-      <tr scope="row">
-        <td><%= item.title %></td>
-        <td><%= (item.price).round %> €</td>
-        <td><%= link_to 'Voir', thumbnail_path(item.id), remote: true %></td>
-        <td><%= link_to 'Delete', { :action => :delete_to_cart, :cart => @cart, :item => item }, method: :delete, class: "btn btn-warning" %></td>
+    <thead>
+      <tr class="text-align-center table-active">
+        <th>Article</th>
+        <th>Prix</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-    <%= "Panier id : #{@cart.id}" %>
-    <% else %>
-    <p>Paner vide!</p>
-    <%= "Panier id : #{@cart.id}" %>
-    <% end %>
-</table>
+    </thead>
+    <tbody>
+      <% @user.added_items.each do |item| %>
+        <tr scope="row text-center align-center">
+          <td><%= image_tag "#{item.image_url}", size: "30x30" %>    <%= item.title %></td>
+          <td><%= (item.price).round %> €</td>
+          <td><%= link_to 'Voir', thumbnail_path(item.id), remote: true, class: "btn btn-info" %>
+          <%= link_to 'Supprimer', { :action => :delete_to_cart, :cart => @cart, :item => item }, method: :delete, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+      <% else %>
 
-
-
-<div id="item-content"></div>
+      <h4>Paner vide! 🤭 😦</h4>
+      <% end %>
+  </table>
+  <div id="item-content" class="text-center"></div>
+</div>
