@@ -96,6 +96,31 @@ class CartsController < ApplicationController
     return @total
   end
 
+    def payment
+      set_cart
+      set_user
+      calcul_total
+      new_charge
+      if @charge.save
+        redirect_to new_order_path
+      else
+        flash[:error] = "Problème de paiement"
+        redirect_to mon_panier_path
+      end
+    end
+
+  def new_charge
+    Stripe.api_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+    token = params.require(:stripeToken)
+
+    @charge = Stripe::Charge.create({
+        amount: (@total*100).to_i,
+        currency: 'eur',
+        description: "User #{@user.id}, order n°#{@cart.id}",
+        source: token,
+    })
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
@@ -117,6 +142,7 @@ class CartsController < ApplicationController
     def cart_params
       params.permit(:cart, :item)
     end
+
 
 
 
