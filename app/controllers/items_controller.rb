@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :require_admin, only: [:index, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /items
   # GET /items.json
@@ -23,6 +24,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    set_item
   end
 
   # POST /items
@@ -44,6 +46,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    set_item
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
@@ -58,6 +61,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    set_item
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
