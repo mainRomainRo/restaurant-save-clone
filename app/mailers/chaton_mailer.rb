@@ -2,10 +2,11 @@ class ChatonMailer < ApplicationMailer
 
   def order_to_customer
     @subject = "Bonjour & Merci 😱 🤯 😈‍"
-    if params[:user] && params[:order]
+    if params[:user] && params[:order] && params[:total]
       p "user valid && order exists!"
       @user = params[:user]
       @order = params[:order]
+      @total = params[:total]
       p "Sending mail now ..."
       mail(to: @user.email, subject: @subject)
       p "Mail to customer sent."
@@ -16,9 +17,11 @@ class ChatonMailer < ApplicationMailer
 
   def order_to_admin
     @subject = "Nouvelle commande GROS 🍓💦 🤷‍‍"
-    if params[:order]
-      p "order exists!"
+    if params[:user] && params[:order] && params[:total]
+      p "order exists for a specific user!"
+      @user = params[:user]
       @order = params[:order]
+      @total = params[:total]
       p "Sending mail now ..."
       mail(to: "iplop@live.fr", subject: @subject)
       p "Mail to admin sent."

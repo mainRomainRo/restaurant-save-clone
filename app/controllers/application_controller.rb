@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include ItemsHelper
 
-  helper_method :set_user, :set_item, :set_all_users, :set_all_items, :require_admin, :require_login, :user_admin?
+  helper_method :set_user, :set_item, :set_all_users, :calcul_total, :set_all_items, :require_admin, :require_login, :user_admin?
   before_action :configure_permitted_parameters, :set_user, if: :devise_controller?
 
   def require_login

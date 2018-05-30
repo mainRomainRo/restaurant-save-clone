@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Yo man, <%= @user.firstname.capitalize! %> de son joli nom <%= @user.lastname.upcase! %> a commandé !!</h1>
+    <h1>Yo man, Nouvelle commande !!</h1>
     <p>
       Voici le récap' de sa commande :
     </p>
@@ -29,7 +29,7 @@
         <tr>
         <td colspan="3"><h3>Joli! Tu t'es fait :</h3></td>
         <td>
-          <h3>somme totale</h3>
+          <h3><%= @total %> €</h3>
         </td>
         </tr>
       </tfoot>
