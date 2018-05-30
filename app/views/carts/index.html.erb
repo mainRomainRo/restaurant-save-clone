@@ -14,15 +14,23 @@
         <tr scope="row text-center align-center">
           <td><%= image_tag "#{item.image_url}", size: "30x30" %>    <%= item.title %></td>
           <td><%= (item.price).round %> €</td>
-          <td><%= link_to 'Voir', thumbnail_path(item.id), remote: true, class: "btn btn-info" %>
-          <%= link_to 'Supprimer', { :action => :delete_to_cart, :cart => @cart, :item => item }, method: :delete, class: "btn btn-danger" %></td>
+          <td><%= link_to 'Aperçu', thumbnail_path(item.id), remote: true, class: "btn btn-info" %>
+          <%= link_to 'Retirer', { :action => :delete_to_cart, :cart => @cart, :item => item }, method: :delete, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
+        <tr scope="row">
+          <td></td>
+          <td><strong>TOTAL</strong></td>
+          <td><strong><%= @total.round %> €</strong></td>
+          <td> <%= link_to 'Passer la commande', create_order_path, method: :post, class: "btn btn-success" %></td>
+        </tr>
     </tbody>
       <% else %>
 
       <h4>Paner vide! 🤭 😦</h4>
       <% end %>
   </table>
-  <div id="item-content" class="text-center"></div>
+  <div class="col-3">
+    <div id="item-content"></div>
+  </div>
 </div>
