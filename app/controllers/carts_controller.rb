@@ -50,18 +50,18 @@ class CartsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /carts/1
-  # PATCH/PUT /carts/1.json
   def update
-    respond_to do |format|
-      if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
-        format.json { render :show, status: :ok, location: @cart }
+    @user = current_user
+    calcul_total
+    update_params
+    @item = @cart.cart_items.where(added_item: params[:id]).last
+    @item.quantity = params[:item][:quantity]
+      if @item.save
+        render 'index'
       else
-        format.html { render :edit }
-        format.json { render json: @cart.errors, status: :unprocessable_entity }
+        flash[:error] = "Erreur de modification"
+        render 'index'
       end
-    end
   end
 
 
@@ -91,7 +91,7 @@ class CartsController < ApplicationController
   def calcul_total
     @total = 0
     @cart.added_items.each do |item|
-      @total += item.price
+      @total += ((item.price).round * @cart.cart_items.find_by(added_item: item).quantity.to_i)
     end
     return @total
   end
@@ -143,8 +143,8 @@ class CartsController < ApplicationController
       params.permit(:cart, :item)
     end
 
-
-
-
+    def update_params
+      params.require(:item).permit(:id, :quantity)
+    end
 
 end
