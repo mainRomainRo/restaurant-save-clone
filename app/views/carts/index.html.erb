@@ -25,7 +25,7 @@
           <td> <%= form_for @cart, url: {action: :payment, cart: @cart}, method: :post do |f| %>
                   <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                    data-key="pk_test_e9HqqZw1jm0zaJWm0tfW7izo"
                     data-amount="<%= @total * 100 %>"
                     data-email="<%= @user.email %>"
                     data-name="Paiement de <%= @user.firstname %>"
