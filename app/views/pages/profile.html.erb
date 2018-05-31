@@ -1,7 +1,54 @@
-<div class="container w-50 text-center">
+<div class="container w-75 text-center">
   <h1>Hello <%= @user.firstname.capitalize! %> <%= @user.lastname.upcase! %>.</h1>
 
   <% if user_admin? %>
     <h4>Tu es super <%= @user.role %>.</h4>
   <% end %>
+
+    <h2>Mes commandes passées :</h2>
+  <% if current_user.orders %>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr class="table-active">
+          <th scope="col">N° de commande</th>
+          <th scope="col">Articles</th>
+          <th scope="col">Image</th>
+          <th scope="col">Description</th>
+          <th scope="col">Prix</th>
+        </tr>
+      </thead>
+      <tbody>
+  <% current_user.orders.each_with_index do |order, i| %>
+        <tr>
+          <th  class="table-warning" rowspan="<%= order.purchased_items.length %>"><%= i %></th>
+      <% order.purchased_items.each do |item| %>
+          <td><%= item.title %></td>
+          <td><%= image_tag item.item_pic_url, size: "50x50"%></td>
+          <td><%= item.description %></td>
+          <td><%= item.price %> €</td>
+        </tr>
+      <% end %>
+      <tr class="table-secondary">
+        <th>SubTotal</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><%= calcul_total_order(order) %> €</th>
+      </tr>
+  <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% else %>
+<h3>Aucune commande pour le moment! 😱👻</h3>
+<h5>Va vite remédier à ce problème : <%= link_to root_path %></h5>
+  <% end %>
+
+
+
+
+
+
+
 </div>

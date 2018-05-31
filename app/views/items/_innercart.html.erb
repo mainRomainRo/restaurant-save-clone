@@ -4,7 +4,7 @@
       <div class="dropdown-item-text">
         <div class="d-flex bd-highlight">
           <div class="p-2 bd-highlights"><%= item.title %></div>
-          <div class="p-2 bd-highlights"><%= image_tag "#{item.image_url}", size: "40x40"%></div>
+          <div class="p-2 bd-highlights"><%= image_tag "#{item.item_pic}", size: "40x40"%></div>
           <div class="p-2 bd-highlights"><%= item.price %></div>
           <div class="p-2 bd-highlights">€</div>
         </div>
@@ -16,7 +16,7 @@
     <h2 class="dropdown-item-text text-right"><%= calcul_total %> €</h2>
   <% else %>
   <div class="dropdown-item">
-    <p>Paner vide! 🤭 😦</p>
+    <p>Panier vide! 🤭 😦</p>
   </div>
   <% end %>
 <% end %>

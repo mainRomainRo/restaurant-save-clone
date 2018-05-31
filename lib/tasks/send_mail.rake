@@ -32,6 +32,7 @@ desc "Tests de l'envoi des jolis mails"
     end
     p "informations récupérées && envoi du mail"
     ChatonMailer.with(order: @order, total: @total, user: @user).order_to_customer.deliver_now
+    ChatonMailer.with(order: @order, total: @total, user: @user).order_with_photos.deliver_now
     ChatonMailer.with(order: @order, total: @total, user: @user).order_to_admin.deliver_now
     p "informations envoyées"
   end

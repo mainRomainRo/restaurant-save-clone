@@ -26,6 +26,7 @@ gem 'popper_js', '~> 1.12.9'
 gem "font-awesome-rails"
 
 gem 'carrierwave', '~> 1.0'
+
 gem 'cloudinary'
 
 # Auth

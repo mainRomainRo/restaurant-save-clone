@@ -21,7 +21,7 @@
         <% @order.purchased_items.each_with_index do |item, i| %>
           <tr>
           <td><%= item.title  %></td>
-          <td><%= image_tag "#{item.image_url}", size: "100x100" %></td>
+          <td><%= image_tag "#{item.item_pic_url}", size: "100x100" %></td>
           <td><%= item.description %></td>
           <td><%= item.price %> €</td>
           </tr>

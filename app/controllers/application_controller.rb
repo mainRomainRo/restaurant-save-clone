@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include ItemsHelper
 
-  helper_method :set_user, :set_item, :set_all_users, :calcul_total, :set_all_items, :require_admin, :require_login, :user_admin?
+  helper_method :set_user, :set_item, :set_all_users, :calcul_total,:calcul_total_order, :set_all_items, :require_admin, :require_login, :user_admin?
   before_action :configure_permitted_parameters, :set_user, if: :devise_controller?
 
   def require_login
@@ -32,8 +32,8 @@ def set_user
 end
 
 def set_item
-    @item = Item.find(params[:id])
-    return @item
+  @item = Item.find(params[:id])
+  return @item
 end
 
 def set_all_users
@@ -60,6 +60,14 @@ def user_admin?
       return false
     end
   end
+end
+
+def calcul_total_order(order)
+  @total = 0
+  order.purchased_items.each do |item|
+    @total += item.price
+  end
+  return @total
 end
 
 protected

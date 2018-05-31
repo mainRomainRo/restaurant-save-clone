@@ -12,7 +12,7 @@
     <tbody>
       <% @user.added_items.each do |item| %>
         <tr scope="row text-center align-center">
-          <td><%= image_tag "#{item.image_url}", size: "30x30" %>    <%= item.title %></td>
+          <td><%= image_tag "#{item.item_pic}", size: "30x30" %>    <%= item.title %></td>
           <td><%= (item.price).round %> €</td>
           <td><%= link_to 'Aperçu', thumbnail_path(item.id), remote: true, class: "btn btn-info" %>
           <%= link_to 'Retirer', {action: :delete_to_cart, cart: @cart, item: item.cart_items.where(cart_id: @cart).ids.last}, method: :delete, class: "btn btn-danger" %></td>

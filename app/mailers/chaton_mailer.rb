@@ -1,5 +1,20 @@
 class ChatonMailer < ApplicationMailer
 
+  def order_with_photos
+    @subject = "Et voila votre commande ! 😺 👯‍ ☄️"
+    if params[:user] && params[:order] && params[:total]
+      p "user valid && order exists!"
+      @user = params[:user]
+      @order = params[:order]
+      @total = params[:total]
+      p "Sending mail now ..."
+      mail(to: @user.email, subject: @subject)
+      p "Mail to customer sent."
+    else
+      p "error somewhere!"
+    end
+  end
+
   def order_to_customer
     @subject = "Bonjour & Merci 😱 🤯 😈‍"
     if params[:user] && params[:order] && params[:total]
@@ -44,5 +59,6 @@ class ChatonMailer < ApplicationMailer
       p "something wrong here!"
     end
   end
+
 
 end

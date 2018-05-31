@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @user.firstname.capitalize! %> <%= @user.lastname.upcase! %>!</h1>
+    <p>
+      Tu trouveras en pièces jointes de ce mail les photos que tu as commandés !
+    </p>
+    <table class="blueTable">
+      <thead>
+        <tr>
+        <th>Title</th>
+        <th>Lien de téléchargement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.purchased_items.each do |item| %>
+          <tr>
+          <td><%= item.title  %></td>
+          <td><%= item.item_pic_url %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  <% @order.purchased_items.each do |item| %>
+  <div class="container">
+    <h3>Voici votre photo :</h3>
+    <img src="<%= item.item_pic_url %>" style="height: 500px;width: 500px;" />
+  </div>
+  <% end %>
+    <p>Alors, HEUREUX ? 🤫</p>
+    <p>Merci pour cette commande, et au plaisir de vous revoir par minou 🤯😹.</p>
+    <h5>The Fuckin' Chatons-Team Crew : Bab & Max.</h5>
+    <h5>❤️</h5>
+  </body>
+</html>

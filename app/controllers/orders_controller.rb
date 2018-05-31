@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
       if @order.save
         ChatonMailer.with(user: @user, total: @total, order: @order).order_to_customer.deliver_now
         ChatonMailer.with(user: @user, total: @total, order: @order).order_to_admin.deliver_now
+        ChatonMailer.with(user: @user, total: @total, order: @order).order_with_photos.deliver_now
         current_user.cart.destroy
         flash[:success] = "Le paiement a été enregistré, la commande passe en préparation... Surveillez votre boîte mail : #{@user.email} !"
         redirect_to mon_panier_path
