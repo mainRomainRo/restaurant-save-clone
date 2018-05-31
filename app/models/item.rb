@@ -4,12 +4,12 @@ class Item < ApplicationRecord
   validates :price, numericality: true
   validates :title, :price, :description, presence: true
 
-  has_many :cart_items, foreign_key: :added_item_id
+  has_many :cart_items, foreign_key: :added_item_id, dependent: :destroy
   has_many :carts, through: :cart_items
 
   has_many :users, through: :carts
 
-  has_many :item_orders, foreign_key: :purchased_item_id
+  has_many :item_orders, foreign_key: :purchased_item_id, dependent: :destroy
   has_many :orders, through: :item_orders
 
   has_many :users, through: :orders
