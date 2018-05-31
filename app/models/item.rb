@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   validates :title, uniqueness: true
   validates :price, numericality: true
-  validates :title, :price, :description, :image_url, presence: true
+  validates :title, :price, :description, presence: true
 
   has_many :cart_items, foreign_key: :added_item_id
   has_many :carts, through: :cart_items

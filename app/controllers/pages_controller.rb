@@ -22,4 +22,8 @@ class PagesController < ApplicationController
     set_user
   end
 
+  def orders
+    set_all_orders
+  end
+
 end

@@ -10,11 +10,14 @@
     <ul class="navbar-nav mr-auto p-2 w-25">
       <li> </li>
       <% if user_admin? %>
-      <li class="nav-item btn btn-danger mr-3 mb-3">
-        <%= link_to "Admin : utilisateurs", admin_path, class: "nav-item link-home" %>
+      <li class="btn btn-danger mr-3 dropdown btn-lg">
+        <%= link_to "Admin : users", admin_path, class: "nav-item link-home" %>
       </li>
-      <li class="nav-item btn btn-danger mr-3 mb-3">
+      <li class="btn btn-danger mr-3 dropdown btn-lg">
         <%= link_to "Admin : items", items_path, class: "nav-item link-home" %>
+      </li>
+      <li class="btn btn-danger mr-3 dropdown btn-lg">
+        <%= link_to "Admin : orders", orders_path, class: "nav-item link-home" %>
       </li>
       <% end %>
     </ul>

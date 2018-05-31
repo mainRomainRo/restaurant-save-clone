@@ -46,6 +46,11 @@ def set_all_items
   return @items
 end
 
+def set_all_orders
+  @orders = Order.all
+  return @orders
+end
+
 def user_admin?
   set_user
   if @user

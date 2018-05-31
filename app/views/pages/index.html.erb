@@ -25,15 +25,17 @@
   <div class="col-8 my-auto">
     <div class="jumbotron align-middle">
       <% if user_signed_in? %>
-      <h1 class="display-4">Hello, dear <%= @user.firstname.capitalize! %></h1>
+      <h1 class="display-4">Bienvenue, cher <%= @user.firstname.capitalize! %></h1>
       <% else %>
-      <h1 class="display-4">Hello, dear @user.firstname</h1>
+      <h1 class="display-4">Bienvenue à toi !</h1>
       <% end %>
-      <p class="lead">This is a simple e-shop unit of wonderfull cat's image. It was made with a lot of coffee ☕️, brain 🧠 and bit of 🐱.</p>
+      <p class="lead">Voici notre fabuleux site de commerce de cartes de chatons-mignons. Réalisés avec beaucoup de ☕️, accessoirement du 🧠 et un peu de 🐱.</p>
       <hr class="my-4">
       <% if !user_signed_in? %>
-      <p>👇🏻 Any account yet ? Let's go subscribe and order now !</p>
+      <p>👇🏻 Pas encore de compte ? Va de suite t'en créer un pour profiter des meilleurs chatons du monde!</p>
       <a class="btn btn-primary btn-lg" href="<%= new_user_registration_path %>" role="button">Go!</a>
+      <% else %>
+      <p>👈🏻 Découvre nos derniers ajouts !</p>
       <% end %>
     </div>
   </div>
