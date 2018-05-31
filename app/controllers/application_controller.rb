@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include ItemsHelper
 
-  helper_method :set_user, :set_item, :set_all_users, :calcul_total,:calcul_total_order, :set_all_items, :require_admin, :require_login, :user_admin?
+  helper_method :set_user, :user_is_admin, :set_item, :set_all_users, :calcul_total,:calcul_total_order, :set_all_items, :require_admin, :require_login, :user_admin?
   before_action :configure_permitted_parameters, :set_user, if: :devise_controller?
 
   def require_login
@@ -59,6 +59,15 @@ def user_admin?
     else
       return false
     end
+  end
+end
+
+def user_is_admin(user)
+  @user = user
+    if @user.role == "admin"
+      return true
+    else
+      return false
   end
 end
 

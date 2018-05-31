@@ -21,7 +21,7 @@
           <td><%= user.email %></td>
           <td><%= user.created_at %></th>
           <td><%= user.last_sign_in_at %></th>
-          <% if user_admin? %>
+          <% if user_is_admin(user) %>
             <td>true</td>
           <% else %>
             <td>false</td>
