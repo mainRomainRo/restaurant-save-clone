@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   # GET /carts
   before_action :require_login, only: [:show, :edit, :update, :destroy, :index, :add_to_cart, :delete_to_cart]
 
-  helper_method :destroy_current_cart
+  helper_method :destroy
 
   # GET /carts.json
   def index
