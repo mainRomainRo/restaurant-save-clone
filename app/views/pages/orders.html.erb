@@ -1,28 +1,28 @@
 <div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Firstname</th>
-        <th scope="col">Lastname</th>
-        <th scope="col">Email</th>
-        <th scope="col">Date of creation</th>
-        <th scope="col">Last date of connection</th>
-        <th scope="col">Admin</th>
-      </tr>
-    </thead>
+    <div class="input-group input-group-lg">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fab fa-searchengin"></i></span>
+      </div>
+      <input type="search" class="form-control light-table-filter" data-table="order-table" placeholder="Filter" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    </div>
 
-    <tbody>
+  <table class="order-table table table-bordered table-striped table-hover order-table">
+   <thead>
+       <tr>
+        <th># Order</th>
+        <th>Date</th>
+        <th>Client</th>
+        <th>Montant</th>
+    </thead>
+    <tbody  id="myTable">
       <% @orders.each do |order| %>
-        <tr>
-          <th scope="row"><%= order.id %></th>
-          <td><%= order.created_at %></th>
-          <% if user_admin? %>
-            <td>true</td>
-          <% else %>
-            <td>false</td>
-          <% end %>
-      <% end %>
+        <tr class="content">
+          <td><%= order.id %></td>
+          <td><%= order.created_at %></td>
+          <td><%= order.user.lastname.upcase %></td>
+          <td><%= calcul_total_order(order) %></td>
+        </tr>
+        <% end %>
     </tbody>
   </table>
 </div>
