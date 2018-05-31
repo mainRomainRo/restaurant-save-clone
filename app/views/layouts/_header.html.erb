@@ -1,23 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
-  <a class="navbar-brand" href="<%= root_path %>"><img src="https://www.minoulechat.com/wp-content/themes/minoulechat/img/logo.png" style="height: 8vh;"/></a>
-  <button class="navbar-toggler btn-lg" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+  <a class="navbar-brand" href="<%= root_path %>"><img src="https://www.minoulechat.com/wp-content/themes/minoulechat/img/logo.png" style="height: 4vw;"/></a>
 
   <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
 
-    <ul class="navbar-nav mr-auto p-2 w-25">
+    <ul class="navbar-nav mr-auto p-3">
       <li> </li>
       <% if user_admin? %>
-      <li class="btn btn-danger mr-3 dropdown btn-lg">
-        <%= link_to "Admin : users", admin_path, class: "nav-item link-home" %>
+      <li class="btn btn-danger mr-3 mb-2 dropdown">
+      <%= link_to admin_path, class: "nav-item link-home" do %><i class="fas fa-users-cog"></i><% end %>
       </li>
-      <li class="btn btn-danger mr-3 dropdown btn-lg">
-        <%= link_to "Admin : items", items_path, class: "nav-item link-home" %>
+      <li class="btn btn-danger mr-3 mb-2 dropdown">
+        <%= link_to items_path, class: "nav-item link-home" do%><i class="fas fa-newspaper"></i></i><% end %>
       </li>
-      <li class="btn btn-danger mr-3 dropdown btn-lg">
-        <%= link_to "Admin : orders", orders_path, class: "nav-item link-home" %>
+      <li class="btn btn-danger mr-3 mb-2 dropdown">
+        <%= link_to orders_path, class: "nav-item link-home" do%><i class="fas fa-money-check-alt"></i><% end %>
       </li>
       <% end %>
     </ul>
@@ -27,10 +23,10 @@
     <ul class="navbar-nav w-auto d-flex">
     <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
       <div class="btn-group">
-        <button type="button" class="btn btn-dark dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-dark dropdown-toggle mb-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-shopping-cart"></i> Panier
         </button>
-        <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-right mb-2">
           <div class="dropdown-item-text">
           <p class="dropdown-item-text"><%= link_to 'Mon panier', mon_panier_path, class: "btn btn-outline-info" %></p>
         </div>
@@ -40,7 +36,7 @@
     </li>
     <li class="nav-item dropdown p-2 flex-shrink-1 bd-highlight">
       <div class="btn-group">
-        <button type="button" class="btn btn-dark dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-user-circle"></i> Compte
         </button>
         <div class="dropdown-menu dropdown-menu-right">

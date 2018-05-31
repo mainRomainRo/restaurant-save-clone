@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   delete '/suppr', to: "carts#delete_to_cart", as: :suppr
   post "/create_order", to: "orders#create", as: :create_order
   get "/new_order", to: "orders#new", as: :new_order
-  get '/admin', to: "pages#admin";
+  get '/admin', to: "pages#admin"
+  get '/orders', to: "pages#orders"
   get '/mon_profil', to: 'pages#profile', as: :mon_profil
   post "/payment/stripe", to: "carts#payment", as: :payment
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
