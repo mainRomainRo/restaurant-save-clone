@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :require_login, only: [:admin, :profile]
-  before_action :require_admin, only: [:admin]
+  before_action :require_admin, only: [:admin, :orders]
 
   def index
     set_all_items

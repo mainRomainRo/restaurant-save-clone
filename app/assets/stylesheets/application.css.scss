@@ -19,8 +19,18 @@ li {
   list-style: none;
 }
 
-body {
+.butt {
+  width: 100px;
+}
+
+.biton {
+  width: 130px;
+}
+
+.site-content {
 	margin: 0;
+  position: relative;
+  min-height: 90vh;
 }
 
 .page {
@@ -50,6 +60,10 @@ body {
 
 .link-home {
   color: white;
-  
   font-weight: bold;
+}
+
+site-footer {
+  position: absolute;
+
 }

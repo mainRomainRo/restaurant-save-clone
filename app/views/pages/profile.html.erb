@@ -21,7 +21,7 @@
       <tbody>
   <% current_user.orders.each_with_index do |order, i| %>
         <tr>
-          <th  class="table-warning" rowspan="<%= order.purchased_items.length %>"><%= i %></th>
+          <th  class="table-active" rowspan="<%= order.purchased_items.length %>"><%= i %></th>
       <% order.purchased_items.each do |item| %>
           <td><%= item.title %></td>
           <td><%= image_tag item.item_pic_url, size: "50x50"%></td>

@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get '/mon_profil', to: 'pages#profile', as: :mon_profil
   post "/payment/stripe", to: "carts#payment", as: :payment
   patch :mon_panier, to: "carts#update"
+  delete '/del', to: "carts#destroy"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

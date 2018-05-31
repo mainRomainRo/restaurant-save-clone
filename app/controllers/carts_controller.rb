@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   # GET /carts
   before_action :require_login, only: [:show, :edit, :update, :destroy, :index, :add_to_cart, :delete_to_cart]
 
+  helper_method :destroy_current_cart
 
   # GET /carts.json
   def index
@@ -66,10 +67,9 @@ class CartsController < ApplicationController
 
 
   def destroy
-    @cart.added_items.delete(set_item)
-    respond_to do |format|
-      format.html { redirect_to mon_panier_path, notice: 'Cart was successfully destroyed.' }
-      format.json { head :no_content }
+    if @cart.destroy
+      flash[:notice] = 'Panier vidé!'
+      redirect_to root_path
     end
   end
 
