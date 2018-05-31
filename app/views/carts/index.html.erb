@@ -2,19 +2,21 @@
 <div class="container-fluid w-75 text-center d-flex flex-column align-center">
   <table class="table table-bordered">
   <% if @cart.added_items.length > 0 %>
+  <div class="container d-flex justify-content-center">
+  <div class="container">
     <thead>
       <tr class="text-align-center table-active">
         <th>Article</th>
         <th>Quantité</th>
         <th>Prix</th>
-        <th>Actions</th>
+        <th><%= link_to "RAZ Panier", {controller: :carts, action: :destroy}, method: :delete , class: "btn btn-warning" %></th>
       </tr>
     </thead>
     <tbody>
       <% @user.added_items.each do |item| %>
         <tr scope="row text-center align-center">
           <td><%= image_tag item.item_pic_url, size: "30x30" %> <%= item.title %></td>
-          <td class="row">
+          <td>
               <div class="col-6"> Prix unitaire : <%= (item.price).round %> €</div>
               <div class="col-6">
               <%= form_for(item, url: {controller: :carts, action: :update, id: item.id}, method: :patch) do |f| %>
@@ -53,13 +55,12 @@
           </td>
         </tr>
     </tbody>
+    <div class="container col-3">
+      <div id="item-content"></div>
+    </div>
+    </div>
       <% else %>
-
       <h4>Panier vide! 🤭 😦</h4>
       <% end %>
   </table>
-  <div class="col-3">
-    <div id="item-content"></div>
-  </div>
-
 </div>
