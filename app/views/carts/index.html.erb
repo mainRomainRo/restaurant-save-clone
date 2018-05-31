@@ -5,6 +5,7 @@
     <thead>
       <tr class="text-align-center table-active">
         <th>Article</th>
+        <th>Quantité</th>
         <th>Prix</th>
         <th>Actions</th>
       </tr>
@@ -12,21 +13,34 @@
     <tbody>
       <% @user.added_items.each do |item| %>
         <tr scope="row text-center align-center">
-          <td><%= image_tag "#{item.image_url}", size: "30x30" %>    <%= item.title %></td>
-          <td><%= (item.price).round %> €</td>
-          <td><%= link_to 'Aperçu', thumbnail_path(item.id), remote: true, class: "btn btn-info" %>
-          <%= link_to 'Retirer', {action: :delete_to_cart, cart: @cart, item: item.cart_items.where(cart_id: @cart).ids.last}, method: :delete, class: "btn btn-danger" %></td>
+          <td><%= image_tag item.item_pic_url, size: "30x30" %> <%= item.title %></td>
+          <td class="row">
+              <div class="col-6"> Prix unitaire : <%= (item.price).round %> €</div>
+              <div class="col-6">
+              <%= form_for(item, url: {controller: :carts, action: :update, id: item.id}, method: :patch) do |f| %>
+              <%= f.number_field :quantity, {value: @cart.cart_items.where(added_item: item).last.quantity, within: 1..99, step: 1} %>
+              <%= f.submit 'Recalculer' %>
+              <% end %>
+              </div>
+          </td>
+          <td>
+              Sous-total : <%= ((item.price).round * @cart.cart_items.find_by(added_item: item).quantity.to_i) %> €
+          </td>
+          <td>
+          <%= link_to 'Retirer', {action: :delete_to_cart, cart: @cart, item: item.cart_items.where(cart_id: @cart).ids.last}, method: :delete, class: "btn btn-danger" %>
+          <%= link_to 'Aperçu', thumbnail_path(item.id), remote: true, class: "btn btn-info" %>
+          </td>
         </tr>
       <% end %>
         <tr scope="row">
           <td></td>
-          <td><strong>TOTAL</strong></td>
-          <td><strong><%= @total.round %> €</strong></td>
+          <td><strong class="float-right">TOTAL</strong></td>
+          <td><strong><%= calcul_total %> €</strong></td>
           <td> <%= form_for @cart, url: {action: :payment, cart: @cart}, method: :post do |f| %>
                   <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="pk_test_e9HqqZw1jm0zaJWm0tfW7izo"
-                    data-amount="<%= @total * 100 %>"
+                    data-amount="<%= calcul_total * 100 %>"
                     data-email="<%= @user.email %>"
                     data-name="Paiement de <%= @user.firstname %>"
                     data-description="Pour la commande n°<%= @cart.id %>"
@@ -36,7 +50,6 @@
                     data-zip-code="false">
                   </script>
                 <% end %>
-                <!-- <%= link_to 'Passer la commande', create_order_path, method: :post, class: "btn btn-success" %> -->
           </td>
         </tr>
     </tbody>
@@ -48,4 +61,5 @@
   <div class="col-3">
     <div id="item-content"></div>
   </div>
+
 </div>
