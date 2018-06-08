@@ -4,8 +4,8 @@
     <%= image_tag item.item_pic_url, class: "card-img-top", size: "40vw" %>
     <div class="card-body">
       <h5 class="card-title"><%= item.title %></h5>
-      <p class="card-text" style="height: 3rem;"><%= item.description %></p>
-      <p class="card-text"><small class="text-muted"><%= item.price %> €</small></p>
+      <p class="card-text" style="height: 3rem;"><%= item.description %></p><br>
+      <p class="card-text"><h5 class="text-muted"><%= item.price %> €</h5></p>
       <br>
       <div style="position: absolute;bottom: 0;right: 0;left: 0;">
         <%= link_to 'Afficher détails', item_path(item), class: "btn btn-info float-left ml-1 mb-1" %>
