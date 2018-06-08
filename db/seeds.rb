@@ -8,9 +8,10 @@
 
 Item.delete_all
 
-article_description = [
-  "TOMATE, AIL, ORIGAN, BASILIC, ROQUETTE (+ COPPA 3,5-)",
-  "TOMATE, MOZZA, BASILIC (+ COPPA 3.5-)",
+
+article_title = [
+  "MARINARA VEGAN !",
+  "MARGHERITA",
   "AL RAGÙ new !",
   "PROVENÇALE",
   "BRIE",
@@ -21,9 +22,9 @@ article_description = [
   "PATON CRU "
 ]
 
-article_title = [
-  "MARINARA VEGAN !",
-  "MARGHERITA",
+article_description = [
+  "TOMATE, AIL, ORIGAN, BASILIC, ROQUETTE (+ COPPA 3,5-)",
+  "TOMATE, MOZZA, BASILIC (+ COPPA 3.5-)",
   "TOMATE, FOIE DE VOLAILLE, PARMESAN, BASILIC",
   "TOMATE, OLIVE, ANCHOIS, ROQUETTE, CITRON",
   "BRIE, GRAINES, SALADE",
