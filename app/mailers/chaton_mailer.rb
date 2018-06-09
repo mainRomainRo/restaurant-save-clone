@@ -38,7 +38,7 @@ class ChatonMailer < ApplicationMailer
       @order = params[:order]
       @total = params[:total]
       p "Sending mail now ..."
-      mail(to: "iplop@live.fr", subject: @subject)
+      mail(to: "restaurantsfromparis@gmail.fr", subject: @subject)
       p "Mail to admin sent."
     else
       p "something wrong here!"
@@ -53,7 +53,7 @@ class ChatonMailer < ApplicationMailer
       @money = params[:money]
       p "datas exists!"
       p "Sending mail now ..."
-      mail(to: "iplop@live.fr", subject: @subject)
+      mail(to: "restaurantsfromparis@gmail.com", subject: @subject)
       p "Mail to admin sent."
     else
       p "something wrong here!"
