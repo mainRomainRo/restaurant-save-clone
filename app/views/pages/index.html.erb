@@ -14,7 +14,7 @@
 </div>
 
 <div class="d-flex align-content-start flex-wrap">
-    <div class="jumbotron align-middle">
+    <div style="background:transparent !important" class="jumbotron">
       <% if user_signed_in? %>
       <h1 class="display-4">Bienvenue, cher <%= @user.firstname.capitalize! %></h1>
       <% else %>
