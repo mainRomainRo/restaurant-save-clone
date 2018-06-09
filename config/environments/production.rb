@@ -66,15 +66,15 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
 
-config.action_mailer.delivery_method = :mailjet
-#  config.action_mailer.smtp_settings = {
-#   :address => "in-v3.mailjet.com",
- #   :port => 587,
-  #  :domain => "e-chatons.herokuapp.com",
-   # :user_name => ENV["MJ_PUBLIC"],
-    #:password => ENV["MJ_SECRET"],
-    #:authentication => :plain
-  #}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "in-v3.mailjet.com",
+    :port => 587,
+    :domain => "my-new-restaurant.herokuapp.com",
+    :user_name => ENV['MAILJET_API'],
+    :password => ENV['MAILJET_SECRET'],
+    :authentication => :plain
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
