@@ -8,7 +8,7 @@ class ChatonMailer < ApplicationMailer
       @order = params[:order]
       @total = params[:total]
       p "Sending mail now ..."
-      mail(to: @user.email, subject: @subject, delivery_method_options: { api_key: ENV['MAILJET_API'], secret_key: ENV['MAILJET_SECRET'] })
+      mail(from: restaurantsfromparis@gmail.com, to: @user.email, subject: @subject)
       p "Mail to customer sent."
     else
       p "error somewhere!"
@@ -23,7 +23,7 @@ class ChatonMailer < ApplicationMailer
       @order = params[:order]
       @total = params[:total]
       p "Sending mail now ..."
-      mail(to: @user.email, subject: @subject, delivery_method_options: { api_key: ENV['MAILJET_API'], secret_key: ENV['MAILJET_SECRET'] })
+      mail(from: restaurantsfromparis@gmail.com, to: @user.email, subject: @subject)
       p "Mail to customer sent."
     else
       p "error somewhere!"
@@ -38,7 +38,7 @@ class ChatonMailer < ApplicationMailer
       @order = params[:order]
       @total = params[:total]
       p "Sending mail now ..."
-      mail(to: "restaurantsfromparis@gmail.fr", subject: @subject, delivery_method_options: { api_key: ENV['MAILJET_API'], secret_key: ENV['MAILJET_SECRET'] } )
+      mail(from: restaurantsfromparis@gmail.com, to: "restaurantsfromparis@gmail.fr", subject: @subject)
       p "Mail to admin sent."
     else
       p "something wrong here!"
@@ -53,7 +53,7 @@ class ChatonMailer < ApplicationMailer
       @money = params[:money]
       p "datas exists!"
       p "Sending mail now ..."
-      mail(to: "restaurantsfromparis@gmail.com", subject: @subject, delivery_method_options: { api_key: ENV['MAILJET_API'], secret_key: ENV['MAILJET_SECRET'] })
+      mail(from: restaurantsfromparis@gmail.com, to: "restaurantsfromparis@gmail.com", subject: @subject)
       p "Mail to admin sent."
     else
       p "something wrong here!"
