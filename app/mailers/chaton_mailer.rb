@@ -53,7 +53,7 @@ class ChatonMailer < ApplicationMailer
       @money = params[:money]
       p "datas exists!"
       p "Sending mail now ..."
-      mail(to: "restaurantsfromparis", subject: @subject)
+      mail(to: "romain.fiorotto@gmail.com", subject: @subject)
       p "Mail to admin sent."
     else
       p "something wrong here!"
