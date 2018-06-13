@@ -9,6 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :firstname, :mobile_number, :lastname) }
   end
 
+  def mobile_number
+  end
+
 end
 
   # before_action :configure_sign_up_params, only: [:create]
