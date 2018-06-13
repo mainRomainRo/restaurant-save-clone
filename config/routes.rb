@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+devise_for :users, :controllers => { :registrations => "users/registrations" }
+
   root 'pages#index'
   get '/about', to: 'pages#about'
   resources :items
@@ -15,5 +16,6 @@ Rails.application.routes.draw do
   post "/payment/stripe", to: "carts#payment", as: :payment
   patch :mon_panier, to: "carts#update"
   delete '/del', to: "carts#destroy"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

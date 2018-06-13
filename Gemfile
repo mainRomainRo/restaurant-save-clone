@@ -43,6 +43,8 @@ gem 'stripe'
 gem 'mailjet'
 
 
+#Mobile
+gem 'phonelib'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
