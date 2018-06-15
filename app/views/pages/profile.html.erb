@@ -1,4 +1,21 @@
-<div class="container w-75 text-center">
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Mon Profil</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mes Adresses</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Mes Commandes</a>
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+
+<!-- Mon Profil -->
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><%= render '../devise/registrations/edit' %></div>
+<!-- Mes Adresses -->
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+  
+  <!--Mes Commandes-->
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <div class="container w-75 text-center">
   <h1>Hello <%= @user.firstname.capitalize! %> <%= @user.lastname.upcase! %>.</h1>
 
   <% if user_admin? %>
@@ -16,6 +33,7 @@
           <th scope="col">Image</th>
           <th scope="col">Description</th>
           <th scope="col">Prix</th>
+          <th scope="col">Factures</th>
         </tr>
       </thead>
       <tbody>
@@ -44,11 +62,7 @@
 <h3>Aucune commande pour le moment! 😱👻</h3>
 <h5>Va vite remédier à ce problème : <%= link_to root_path %></h5>
   <% end %>
-
-
-
-
-
-
-
+  </div>
+  </div>
+</div></div>
 </div>
