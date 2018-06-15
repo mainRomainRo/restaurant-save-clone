@@ -46,7 +46,7 @@
                     data-email="<%= @user.email %>"
                     data-name="Paiement de <%= @user.firstname %>"
                     data-description="Pour la commande n°<%= @cart.id %>"
-                    data-image="https://www.thehackingproject.org/assets/thp-logo-5f2f06c9444205a88123ca1de74646970e5a1dfb03698d02db33e5e62a60d6cd.png"
+                    data-image="https://res.cloudinary.com/basta/image/upload/v1529067747/logo/Basta_logo_contour3px_retreci_rotation-9.png"
                     data-locale="auto"
                     data-currency="eur"
                     data-zip-code="false"
@@ -58,10 +58,85 @@
     </tbody>
     <div class="container col-3">
       <div id="item-content"></div>
-    </div>
+      </div>
     </div>
       <% else %>
       <h4>Panier vide! 🤭 😦</h4>
       <% end %>
   </table>
 </div>
+
+<!-- Modal -->
+
+<div class="container-fluid w-75 text-center d-flex flex-column align-center">
+  <table class="table table-bordered">
+    <div class="container d-flex justify-content-center">
+    <div class="container">
+    <thead>
+      <tr class="text-align-center table-active">
+        
+        <!-- Buttun -->
+        <th>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Ajouter une adresse</button>
+        </th>
+
+        <!-- Large modal -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+    </div>
+  </div>
+  </div>
+  
+  </tr>
+  </thead>
+  </div>
+  </div>
+  </table>
+  </div>
