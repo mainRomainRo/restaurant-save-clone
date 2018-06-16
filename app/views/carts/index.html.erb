@@ -8,25 +8,26 @@
       <tr class="text-align-center table-active">
         <th>Article</th>
         <th>Quantité</th>
-        <th>Prix</th>
-        <th><%= link_to "RAZ Panier", {controller: :carts, action: :destroy}, method: :delete , class: "btn btn-warning" %></th>
+        <%#<th>Prix</th>%>
+
+        <th>  <%# Bouton pour effacer tout le panier<%= link_to "RAZ Panier", {controller: :carts, action: :destroy}, method: :delete , class: "btn btn-warning" %> </th>
       </tr>
+
     </thead>
     <tbody>
       <% @user.added_items.each do |item| %>
         <tr scope="row text-center align-center">
-          <td><%= image_tag item.item_pic_url, size: "30x30" %> <%= item.title %></td>
           <td>
-              <div class="col-6"> Prix unitaire : <%= (item.price).round %> €</div>
-              <div class="col-6">
-              <%= form_for(item, url: {controller: :carts, action: :update, id: item.id}, method: :patch) do |f| %>
-              <%= f.number_field :quantity, {value: @cart.cart_items.where(added_item: item).last.quantity, within: 1..99, step: 1} %>
-              <%= f.submit 'Recalculer' %>
-              <% end %>
-              </div>
+            <%= image_tag item.item_pic_url, size: "30x30" %> <%= item.title %><br>
+            <div class="text-muted"> <%= (item.price).round %>€/piece</div>
           </td>
           <td>
-              Sous-total : <%= ((item.price).round * @cart.cart_items.find_by(added_item: item).quantity.to_i) %> €
+
+              <div class="col-6">
+              <%= form_for(item, url: {controller: :carts, action: :update, id: item.id}, method: :patch) do |f| %>
+              <%= f.number_field :quantity, {value: @cart.cart_items.where(added_item: item).last.quantity, within: 1..25, step: 1, :onchange => "this.form.submit()"} %>
+              <% end %>
+              </div>
           </td>
           <td>
           <%= link_to 'Retirer', {action: :delete_to_cart, cart: @cart, item: item.cart_items.where(cart_id: @cart).ids.last}, method: :delete, class: "btn btn-danger" %>
@@ -36,8 +37,23 @@
       <% end %>
         <tr scope="row">
           <td></td>
+          <td>
+            <div class="text-muted">Sous-total :</div>
+          </td>
+          <td>
+            <div class="text-muted"> <%= calcul_total %> €</div>
+          </td>
+        </tr>
+
+        <tr scope="row">
+          <td></td>
           <td><strong class="float-right">TOTAL</strong></td>
           <td><strong><%= calcul_total %> €</strong></td>
+        </tr>
+
+        <tr scope="row">
+          <td></td>
+          <td></td>
           <td> <%= form_for @cart, url: {action: :payment, cart: @cart}, method: :post do |f| %>
                   <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -50,7 +66,7 @@
                     data-locale="auto"
                     data-currency="eur"
                     data-zip-code="false"
-                    data-shipping-address="true">
+                    data-shipping-address="false">
                   </script>
                 <% end %>
           </td>
